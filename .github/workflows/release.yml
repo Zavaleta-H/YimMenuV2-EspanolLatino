@@ -1,0 +1,60 @@
+name: Build and Release
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    name: Build ESP DLL and publish release
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup build tools
+        run: |
+          sudo apt update
+          sudo apt install -y cmake ninja-build
+
+      - name: Setup Zig
+        uses: mlugg/setup-zig@v2
+
+      - name: Generate CMake project
+        run: cmake -DUSE_CROSSCOMPILER=Zig -DCMAKE_BUILD_TYPE=RelWithDebInfo -S . -B build -G Ninja
+
+      - name: Build DLL
+        run: cmake --build ./build --config RelWithDebInfo --target YimMenuV2 --
+
+      - name: Check DLL
+        run: if [ ! -f build/libYimMenuV2.dll ]; then exit 1; fi
+
+      - name: Rename DLL
+        run: |
+          mv libYimMenuV2.dll YimMenuV2.dll
+          mv libYimMenuV2.pdb YimMenuV2.pdb
+        working-directory: build/
+
+      - name: Compute SHA256
+        id: sha
+        run: |
+          sha256sum build/YimMenuV2.dll > build/YimMenuV2.dll.sha256
+          cat build/YimMenuV2.dll.sha256
+          echo "sha256=$(cat build/YimMenuV2.dll.sha256)" >> $GITHUB_OUTPUT
+          echo "short_sha=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: latest
+          name: YimMenuV2 Espanol Latino [${{ steps.sha.outputs.short_sha }}]
+          files: |
+            build/YimMenuV2.dll
+            build/YimMenuV2.dll.sha256
+          body: |
+            Build automático de la traducción al español latino.
+            Copia `YimMenuV2.dll` a la carpeta del juego.
+            SHA256: ${{ steps.sha.outputs.sha256 }}
