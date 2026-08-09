@@ -26,5 +26,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static NoRagdoll _NoRagdoll{"noragdoll", "No Ragdoll", "Prevents your ped from ragdolling"};
+	static NoRagdoll _NoRagdoll{"noragdoll", "Sin ragdoll", "Evita que tu personaje se caiga al suelo"};
 }

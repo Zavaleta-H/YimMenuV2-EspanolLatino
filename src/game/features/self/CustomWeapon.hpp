@@ -62,11 +62,11 @@ namespace YimMenu::Features
 		virtual void OnTick() override;
 	};
 
-	static CustomWeapon _CustomWeapon{"customweapon", "Custom Weapon", "Modifies weapon ability"};
+	static CustomWeapon _CustomWeapon{"customweapon", "Arma personalizada", "Modifica la capacidad del arma"};
 	static BoolCommand _CustomWeaponEnabledOnWeaponOut{"customweaponenabledonweaponout", "Enable Only if Weapon is Out", "Enables custom weapon only when weapon is out", true};
 	static BoolCommand _GravityGunLaunchOnRelease{"gravitygunlaunchonrelease", "Launch Entity on Release", "Launches entity when released", false};
-	static StringCommand _VehicleGunModel{"vehiclegunmodel", "Vehicle Model", "Model of the vehicle"};
-	static ColorCommand _PaintGunColor{"paintguncolor", "Paint Gun Color", "Color of the paint gun"};
+	static StringCommand _VehicleGunModel{"vehiclegunmodel", "Modelo del vehículo", "Modelo del vehículo"};
+	static ColorCommand _PaintGunColor{"paintguncolor", "Color de la pistola de pintura", "Color de la pistola de pintura"};
 	static BoolCommand _PaintGunRainbowColorEnabled{"paintgunrainbowcolorenabled", "Rainbow Color", "Enables rainbow color for paint gun", false};
 	static IntCommand _PaintGunRainbowColorSpeed{"paintgunrainbowcolorspeed", "Rainbow Color Speed", "Speed of rainbow color for paint gun", 1, 10, 1};
 }

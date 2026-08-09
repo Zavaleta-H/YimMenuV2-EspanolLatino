@@ -87,6 +87,6 @@ namespace YimMenu::Features
 		}
 	};
 
-	static TpToWaypoint _TpToWaypoint{"tptowaypoint", "Teleport to Waypoint", "Teleports you to the waypoint"};
-	static AutoTpToWaypoint _AutoTpToWaypoint{"autotptowaypoint", "Auto Teleport to Waypoint", "Automatically teleports you to the waypoint"};
+	static TpToWaypoint _TpToWaypoint{"tptowaypoint", "Teletransportar al punto de ruta", "Te teletransporta al punto de ruta"};
+	static AutoTpToWaypoint _AutoTpToWaypoint{"autotptowaypoint", "Autoteleportar al punto de ruta", "Te teletransporta automáticamente al punto de ruta"};
 }

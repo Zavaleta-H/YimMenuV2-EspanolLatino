@@ -86,5 +86,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static ClaimSafeEarnings _ClaimSafeEarnings{"claimsafeearnings", "Claim Safe Earnings", "Claims your safe earnings from the selected business."};
+	static ClaimSafeEarnings _ClaimSafeEarnings{"claimsafeearnings", "Cobrar ganancias de la caja fuerte", "Cobra las ganancias de la caja fuerte del negocio seleccionado"};
 }

@@ -226,14 +226,14 @@ namespace YimMenu::Features
 			}
 		};
 
-		static SkipFingerprint _KortzCenterSkipFingerprint{"kortzcenterheistskipfingerprint", "Skip Fingerprint Hack", "Skips fingerprint hacking minigame in computer room"};
-		static SkipSignalNodes _KortzCenterSkipSignalNodes{"kortzcenterheistskipsignalnodes", "Skip Signal Nodes", "Skips signal nodes hacking at vault keypad"};
-		static SkipDataCrack _KortzCenterSkipDataCrack{"kortzcenterheistskipdatacrack", "Skip Data Crack", "Skips data crack minigame"};
-		static CutGlass _KortzCenterCutGlass{"kortzcenterheistcutglass", "Cut Glass", "Cuts display case glass instantly"};
-		static DisableLaserGrid _KortzCenterDisableLaser{"kortzcenterheistdisablelaser", "Disable Laser Grid", "Disables laser security grid"};
-		static TakePrimaryTarget _KortzCenterTakePrimary{"kortzcenterheisttakeprimary", "Take Primary Target", "Takes primary target painting (stand near it)"};
-		static TakeSecondaryTarget _KortzCenterTakeSecondary{"kortzcenterheisttakesecondary", "Take Secondary Target", "Takes secondary loot (stand near it)"};
-		static Setup _KortzCenterSetup{"kortzcenterheistsetup", "Setup", "Sets up Kortz Center heist"};
-		static AutoEnterPcAccessCode _KortzCenterAutoEnterPcAccessCode{"kortzcenterheistautoenterpcaccesscode", "Auto-Enter PC Access Code", "Automatically enters the PC access code"};
+		static SkipFingerprint _KortzCenterSkipFingerprint{"kortzcenterheistskipfingerprint", "Omitir hackeo de huellas", "Omitir el minijuego de hackeo de huella en la sala de computadoras"};
+		static SkipSignalNodes _KortzCenterSkipSignalNodes{"kortzcenterheistskipsignalnodes", "Omitir nodos de señal", "Omitir el hackeo de nodos de señal en el teclado de la bóveda"};
+		static SkipDataCrack _KortzCenterSkipDataCrack{"kortzcenterheistskipdatacrack", "Omitir craqueo de datos", "Omitir el minijuego de craqueo de datos"};
+		static CutGlass _KortzCenterCutGlass{"kortzcenterheistcutglass", "Cortar vidrio", "Corta con laser el vitrina al instante"};
+		static DisableLaserGrid _KortzCenterDisableLaser{"kortzcenterheistdisablelaser", "Desactivar red láser", "Desactiva la rejilla de láser de seguridad"};
+		static TakePrimaryTarget _KortzCenterTakePrimary{"kortzcenterheisttakeprimary", "Tomar objetivo principal", "Toma el cuadro del objetivo principal (párate cerca de él)"};
+		static TakeSecondaryTarget _KortzCenterTakeSecondary{"kortzcenterheisttakesecondary", "Tomar botín secundario", "Toma el botín secundario (párate cerca de él)"};
+		static Setup _KortzCenterSetup{"kortzcenterheistsetup", "Preparar", "Prepara el golpe Kortz Center"};
+		static AutoEnterPcAccessCode _KortzCenterAutoEnterPcAccessCode{"kortzcenterheistautoenterpcaccesscode", "Auto ingresar código de PC", "Ingresa automáticamente el código de acceso de la PC"};
 	}
 }

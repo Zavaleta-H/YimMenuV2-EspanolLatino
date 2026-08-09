@@ -6,7 +6,7 @@ namespace YimMenu::Submenus
 	{
 		auto tab   = std::make_shared<TabItem>("Kortz Center Heist");
 
-		auto target    = std::make_shared<Group>("Primary Target", 1);
+		auto target    = std::make_shared<Group>("Objetivo principal", 1);
 		auto general   = std::make_shared<Group>("General", 2);
 
 		auto vehicles  = std::make_shared<CollapsingHeaderItem>("Vehicles");
@@ -47,7 +47,7 @@ namespace YimMenu::Submenus
 		intel->AddItem(std::make_shared<BoolCommandItem>("kortzcenterheistscopesecondary"_J));
 		intel->AddItem(std::make_shared<BoolCommandItem>("kortzcenterheistscopepoi"_J));
 
-		auto inHeist = std::make_shared<Group>("In-Heist", 2);
+		auto inHeist = std::make_shared<Group>("Dentro del golpe", 2);
 
 		inHeist->AddItem(std::make_shared<CommandItem>("kortzcenterheistskipfingerprint"_J));
 		inHeist->AddItem(std::make_shared<CommandItem>("kortzcenterheistskipsignalnodes"_J));

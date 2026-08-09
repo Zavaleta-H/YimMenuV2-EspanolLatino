@@ -39,5 +39,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static SuperRun _Superrun{"superrun", "Super Run", "Run faster than normal"};
+	static SuperRun _Superrun{"superrun", "Super carrera", "Corre más rápido de lo normal"};
 }

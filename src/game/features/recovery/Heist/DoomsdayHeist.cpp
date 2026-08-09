@@ -142,11 +142,11 @@ namespace YimMenu::Features
 			}
 		};
 
-		static SetCuts _DoomsdayHeistSetCuts{"doomsdayheistsetcuts", "Set Cuts", "Sets heist cut"};
-		static ForceReady _DoomsdayHeistForceReady{"doomsdayheistforceready", "Force Ready", "Forces all players to be ready"};
-		static Setup _DoomsdayHeistSetup{"doomsdayheistsetup", "Setup", "Sets up doomsday heist"};
-		static SkipHacking _DoomsdayHeistSkipHacking{"doomsdayheistskiphacking", "Skip Hacking", "Skips hacking process"};
-		static InstantFinish _DoomsdayHeistInstantFinish{"doomsdayheistinstantfinish", "Instant Finish", "Instantly passes the heist"};
-		static InstantFinishAct3 _DoomsdayHeistInstantFinishAct3{"doomsdayheistinstantfinishact3", "Instant Finish (Act: III)", "Instantly passes Doomsday Scenario Act: III"};
+		static SetCuts _DoomsdayHeistSetCuts{"doomsdayheistsetcuts", "Establecer reparto", "Establece el reparto del golpe"};
+		static ForceReady _DoomsdayHeistForceReady{"doomsdayheistforceready", "Forzar listo", "Fuerza a todos los jugadores a estar listos"};
+		static Setup _DoomsdayHeistSetup{"doomsdayheistsetup", "Preparar", "Prepara el golpe Doomsday"};
+		static SkipHacking _DoomsdayHeistSkipHacking{"doomsdayheistskiphacking", "Omitir hackeo", "Omitir el proceso de hackeo"};
+		static InstantFinish _DoomsdayHeistInstantFinish{"doomsdayheistinstantfinish", "Terminar al instante", "Aprueba el golpe al instante"};
+		static InstantFinishAct3 _DoomsdayHeistInstantFinishAct3{"doomsdayheistinstantfinishact3", "Terminar al instante (Acto III)", "Aprueba el Doomsday Scenario Acto III al instante"};
 	}
 }

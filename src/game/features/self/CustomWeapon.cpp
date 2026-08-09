@@ -44,7 +44,7 @@ namespace YimMenu::Features
 							}
 							else
 							{
-								Notifications::Show("Custom Weapon", "Entity is not a ped.", NotificationType::Warning);
+								Notifications::Show("Arma personalizada", "La entidad no es un ped.", NotificationType::Warning);
 							}
 						}
 					});
@@ -61,14 +61,14 @@ namespace YimMenu::Features
 					if (RayCast(&m_Entity).Cast())
 					{
 						if (m_Entity.IsPed() && m_Entity.IsPlayer())
-							Notifications::Show("Custom Weapon", "Player entity cannot be deleted.", NotificationType::Warning);
+							Notifications::Show("Arma personalizada", "No se puede borrar la entidad de un jugador.", NotificationType::Warning);
 						else
 						{
 							auto location = m_Entity.GetPosition();
 							auto distance = Self::GetPed().GetPosition().GetDistance(location);
 
 							if (distance > 500)
-								Notifications::Show("Custom Weapon", "Entity is too far.", NotificationType::Warning);
+								Notifications::Show("Arma personalizada", "La entidad está demasiado lejos.", NotificationType::Warning);
 							else
 								m_Entity.Delete();
 						}
@@ -134,7 +134,7 @@ namespace YimMenu::Features
 
 							if (m_Entity.IsPed() && m_Entity.IsPlayer())
 							{
-								Notifications::Show("Custom Weapon", "Gravity gun cannot be applied on player entity.", NotificationType::Warning);
+								Notifications::Show("Arma personalizada", "No puedes aplicar la pistola de gravedad a la entidad de un jugador.", NotificationType::Warning);
 							}
 							else
 							{
@@ -147,7 +147,7 @@ namespace YimMenu::Features
 
 								if (tempDistance > 500)
 								{
-									Notifications::Show("Custom Weapon", "Entity is too far.", NotificationType::Warning);
+									Notifications::Show("Arma personalizada", "La entidad está demasiado lejos.", NotificationType::Warning);
 								}
 								else
 								{
@@ -218,7 +218,7 @@ namespace YimMenu::Features
 						}
 						else
 						{
-							Notifications::Show("Custom Weapon", "Invalid vehicle.", NotificationType::Warning);
+							Notifications::Show("Arma personalizada", "Vehículo no válido.", NotificationType::Warning);
 						}
 					}
 				}
@@ -239,7 +239,7 @@ namespace YimMenu::Features
 						}
 						else
 						{
-							Notifications::Show("Custom Weapon", "Invalid vehicle.", NotificationType::Warning);
+							Notifications::Show("Arma personalizada", "Vehículo no válido.", NotificationType::Warning);
 						}
 					}
 				}
@@ -256,14 +256,14 @@ namespace YimMenu::Features
 				{
 					if (!_VehicleGunModel.GetString().length())
 					{
-						Notifications::Show("Custom Weapon", "No vehicle model name provided.", NotificationType::Error);
+						Notifications::Show("Arma personalizada", "No se proporcionó un nombre de modelo de vehículo.", NotificationType::Error);
 						return;
 					}
 
 					auto modelHash = Joaat(_VehicleGunModel.GetString());
 					if (!STREAMING::IS_MODEL_IN_CDIMAGE(modelHash))
 					{
-						Notifications::Show("Custom Weapon", "Invalid vehicle model name provided.", NotificationType::Error);
+						Notifications::Show("Arma personalizada", "Nombre de modelo de vehículo no válido.", NotificationType::Error);
 					}
 					else
 					{

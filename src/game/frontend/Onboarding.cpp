@@ -44,18 +44,18 @@ namespace YimMenu
 			    "You can use the repository to report bugs, suggest features, and contribute by making pull requests. We also have a "
 			    "Matrix server that can be found at https://matrix.to/#/#yimmenu:matrix.org for faster communication with developers "
 			    "and other users. Matrix is a free and open source alternative to Discord, and creating an account is safe and easy");
-			if (ImGui::Button("Open GitHub"))
+			if (ImGui::Button("Abrir GitHub"))
 			{
 				ShellExecuteA(NULL, "open", "https://github.com/YimMenu/YimMenuV2", NULL, NULL, SW_SHOWNORMAL);
 			}
 			ImGui::SameLine();
-			if (ImGui::Button("Open Matrix server"))
+			if (ImGui::Button("Abrir servidor de Matrix"))
 			{
 				ShellExecuteA(NULL, "open", "https://matrix.to/#/#yimmenu:matrix.org", NULL, NULL, SW_SHOWNORMAL);
 			}
 			ImGui::TextWrapped("%s",
 			    "Check for updates reguarly; we publish new builds every night. But most importantly, mess around and have fun with YimMenu!");
-			if (ImGui::Button("Close"))
+			if (ImGui::Button("Cerrar"))
 			{
 				Commands::GetCommand<BoolCommand>("cheaterpool"_J)->SetState(!value);
 				_OnboardingComplete.SetState(true);

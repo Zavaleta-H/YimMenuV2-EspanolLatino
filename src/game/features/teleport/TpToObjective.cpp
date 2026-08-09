@@ -37,5 +37,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static TpToObjective _TpToObjective{"tptoobjective", "Teleport to Objective", "Teleports you to the Objective"};
+	static TpToObjective _TpToObjective{"tptoobjective", "Teletransportar al objetivo", "Te teletransporta al objetivo"};
 }

@@ -14,5 +14,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static DisableActionMode _DisableActionMode{"disableactionmode", "Disable Action Mode", "Disables the player's janky movement during combat."};
+	static DisableActionMode _DisableActionMode{"disableactionmode", "Desactivar modo de combate", "Desactiva los movimientos torpes del jugador durante el combate"};
 };

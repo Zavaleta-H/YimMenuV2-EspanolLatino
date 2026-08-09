@@ -29,7 +29,7 @@ namespace YimMenu::Features
 			}
 		}
 	};
-	static DumpDataHash _DumpDataHash{"dumpdatahash", "Dump Data Hash", "Dumps the current data hash into the console"};
+	static DumpDataHash _DumpDataHash{"dumpdatahash", "Volcar hash de datos", "Vuelca el hash de datos actual en la consola"};
 
 	static void PackOrderHook(rage::scrNativeCallContext* ctx);
 	class SpoofDataHash : public BoolCommand
@@ -80,7 +80,7 @@ namespace YimMenu::Features
 		}
 	};
 
-	static SpoofDataHash _SpoofDataHash{"spoofdatahash", "Spoof Data Hash", "Allows you to join players with rpf mods (or a half installed game)."};
+	static SpoofDataHash _SpoofDataHash{"spoofdatahash", "Suplantar hash de datos", "Te permite unirte a jugadores con mods rpf (o un juego medio instalado)"};
 
 	static void PackOrderHook(rage::scrNativeCallContext* ctx)
 	{

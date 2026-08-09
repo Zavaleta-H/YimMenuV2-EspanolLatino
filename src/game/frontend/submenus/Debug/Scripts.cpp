@@ -59,7 +59,7 @@ namespace YimMenu::Submenus
 		ImGui::SetNextItemWidth(150);
 		ImGui::InputText("##jumpoffset", offsetInput, IM_ARRAYSIZE(offsetInput));
 		ImGui::SameLine();
-		if (ImGui::Button("Jump to Offset"))
+		if (ImGui::Button("Ir al desplazamiento"))
 		{
 			char* end = nullptr;
 			std::uint32_t offset = strtoul(offsetInput, &end, 0);
@@ -141,7 +141,7 @@ namespace YimMenu::Submenus
 			{
 				curThread = nullptr;
 				curProgram = nullptr;
-				return ImGui::TextDisabled("None");
+				return ImGui::TextDisabled("Ninguno");
 			}
 
 			if (ImGui::BeginCombo("Thread", curThread ? curThread->m_ScriptName : "(Select)"))
@@ -178,21 +178,21 @@ namespace YimMenu::Submenus
 				return;
 			}
 
-			ImGui::Combo("State", (int*)&curThread->m_Context.m_State, "Idle\0Running\0Killed\0Paused\0Unk4\0");
+			ImGui::Combo("Estado", (int*)&curThread->m_Context.m_State, "Idle\0Running\0Killed\0Paused\0Unk4\0");
 
 			if (curThread->m_Context.m_State == rage::scrThread::State::KILLED)
 			{
-				ImGui::Text("Exit Reason: %s", curThread->m_ErrorMessage);
+				ImGui::Text("Motivo de salida: %s", curThread->m_ErrorMessage);
 			}
 			else
 			{
-				if (ImGui::Button("Kill"))
+				if (ImGui::Button("Matar"))
 				{
 					curThread->Kill();
 					curThread->m_Context.m_State = rage::scrThread::State::KILLED;
 				}
 				ImGui::SameLine();
-				if (ImGui::Button("Log Labels"))
+				if (ImGui::Button("Registrar etiquetas"))
 				{
 					FiberPool::Push([] {
 						for (int i = 0; i < curProgram->m_StringsCount; i++)
@@ -227,19 +227,19 @@ namespace YimMenu::Submenus
 						ImGui::EndDisabled();
 					}
 					ImGui::BeginGroup();
-					ImGui::Text("Thread ID: %d", curThread->m_Context.m_ThreadId);
-					ImGui::Text("Stack Size: %d", curThread->m_Context.m_StackSize);
-					ImGui::Text("Stack Pointer: 0x%X", curThread->m_Context.m_StackPointer);
-					ImGui::Text("Program Counter: 0x%X", curThread->m_Context.m_ProgramCounter); // This is not really accurate (always points to the WAIT)
-					ImGui::Text("Code Size: %d", curProgram->m_CodeSize);
+					ImGui::Text("ID de hilo: %d", curThread->m_Context.m_ThreadId);
+					ImGui::Text("Tamaño de pila: %d", curThread->m_Context.m_StackSize);
+					ImGui::Text("Puntero de pila: 0x%X", curThread->m_Context.m_StackPointer);
+					ImGui::Text("Contador de programa: 0x%X", curThread->m_Context.m_ProgramCounter); // This is not really accurate (always points to the WAIT)
+					ImGui::Text("Tamaño de código: %d", curProgram->m_CodeSize);
 					ImGui::EndGroup();
 					ImGui::SameLine();
 					ImGui::BeginGroup();
-					ImGui::Text("Arg Count: %d", curProgram->m_ArgCount);
-					ImGui::Text("Local Count: %d", curProgram->m_LocalCount);
-					ImGui::Text("Global Count: %d", curProgram->m_GlobalCount);
-					ImGui::Text("Native Count: %d", curProgram->m_NativeCount);
-					ImGui::Text("String Count: %d", curProgram->m_StringsCount);
+					ImGui::Text("Número de argumentos: %d", curProgram->m_ArgCount);
+					ImGui::Text("Número de locales: %d", curProgram->m_LocalCount);
+					ImGui::Text("Número de globales: %d", curProgram->m_GlobalCount);
+					ImGui::Text("Número de natives: %d", curProgram->m_NativeCount);
+					ImGui::Text("Número de strings: %d", curProgram->m_StringsCount);
 					ImGui::EndGroup();
 					ImGui::TreePop();
 				}
@@ -280,7 +280,7 @@ namespace YimMenu::Submenus
 				ImGui::EndCombo();
 			}
 
-			if (ImGui::InputInt("Arg Count", &argCount))
+			if (ImGui::InputInt("Cantidad de argumentos", &argCount))
 			{
 				if (argCount < 0) // should clamp this to a max value?
 					argCount = 0;
@@ -333,28 +333,28 @@ namespace YimMenu::Submenus
 				launcherIndex = Scripts::GetLauncherIndexFromScript(Joaat(scriptSearch));
 			}
 
-			ImGui::Checkbox("Pause After Starting", &pauseAfterStarting);
+			ImGui::Checkbox("Pausar después de iniciar", &pauseAfterStarting);
 
-			if (ImGui::Button("Start Script"))
+			if (ImGui::Button("Iniciar script"))
 			{
 				FiberPool::Push([] {
 					auto hash = Joaat(scriptSearch);
 
 					if (!SCRIPT::DOES_SCRIPT_WITH_NAME_HASH_EXIST(hash))
 					{
-						Notifications::Show("Start Script", "Script does not exist.", NotificationType::Error);
+						Notifications::Show("Iniciar script", "El script no existe.", NotificationType::Error);
 						return;
 					}
 
 					if (SCRIPT::GET_NUMBER_OF_THREADS_RUNNING_THE_SCRIPT_WITH_THIS_HASH(hash) > 0)
 					{
-						Notifications::Show("Start Script", "Script is already running.", NotificationType::Error);
+						Notifications::Show("Iniciar script", "El script ya se está ejecutando.", NotificationType::Error);
 						return;
 					}
 
 					if (MISC::GET_NUMBER_OF_FREE_STACKS_OF_THIS_SIZE(stackSize) == 0)
 					{
-						Notifications::Show("Start Script", "No free stack of this size.", NotificationType::Error);
+						Notifications::Show("Iniciar script", "No hay un stack libre de este tamaño.", NotificationType::Error);
 						return;
 					}
 
@@ -381,21 +381,21 @@ namespace YimMenu::Submenus
 					}
 
 					SCRIPT::SET_SCRIPT_WITH_NAME_HASH_AS_NO_LONGER_NEEDED(hash);
-					Notifications::Show("Start Script", std::format("Started script with ID {}.", id), NotificationType::Success);
+					Notifications::Show("Start Script", std::format("Script iniciado con ID {}.", id), NotificationType::Success);
 				});
 			}
 
 			if (launcherIndex && *Pointers.IsSessionStarted)
 			{
 				ImGui::SameLine();
-				if (ImGui::Button("Start Session Script"))
+				if (ImGui::Button("Iniciar script de sesión"))
 				{
 					FiberPool::Push([] {
 						Scripts::StartLauncherScript(Joaat(scriptSearch));
 					});
 				}
 				ImGui::SameLine();
-				if (ImGui::Button("Start Script With Event"))
+				if (ImGui::Button("Iniciar script con evento"))
 				{
 					FiberPool::Push([] {
 						Scripts::ForceScriptOnPlayer(Joaat(scriptSearch), -1);

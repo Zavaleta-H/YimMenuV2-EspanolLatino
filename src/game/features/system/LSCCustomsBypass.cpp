@@ -40,5 +40,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static LSCCustomsBypass _LSCCustomsBypass{"lsccustomsbypass", "Remove LSC Restrictions", "Removes Los Santos Customs vehicle modification restrictions"};
+	static LSCCustomsBypass _LSCCustomsBypass{"lsccustomsbypass", "Quitar restricciones de LSC", "Elimina las restricciones de modificación de vehículos de Los Santos Customs"};
 }

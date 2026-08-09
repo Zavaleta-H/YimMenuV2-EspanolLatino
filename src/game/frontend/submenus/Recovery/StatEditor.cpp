@@ -233,11 +233,11 @@ namespace YimMenu::Submenus
 		switch (data->GetType())
 		{
 		case sStatData::Type::_BOOL:
-			return ImGui::Checkbox("Value", &value.m_AsBool);
+			return ImGui::Checkbox("Valor", &value.m_AsBool);
 		case sStatData::Type::FLOAT:
-			return ImGui::InputFloat("Value", &value.m_AsFloat);
+			return ImGui::InputFloat("Valor", &value.m_AsFloat);
 		case sStatData::Type::INT:
-			return ImGui::InputInt("Value", &value.m_AsInt);
+			return ImGui::InputInt("Valor", &value.m_AsInt);
 		case sStatData::Type::UINT32:
 			return ImGui::InputScalar("Value", ImGuiDataType_U32, &value.m_AsInt);
 		case sStatData::Type::UINT16:
@@ -249,10 +249,10 @@ namespace YimMenu::Submenus
 		case sStatData::Type::UINT64:
 			return ImGui::InputScalar("Value", ImGuiDataType_U64, &value.m_AsInt);
 		case sStatData::Type::STRING:
-			return ImGui::InputText("Value", value.m_AsString, sizeof(value.m_AsString));
+			return ImGui::InputText("Valor", value.m_AsString, sizeof(value.m_AsString));
 		default:
 			ImGui::BeginDisabled();
-			ImGui::Text("Data type not supported");
+			ImGui::Text("Tipo de datos no compatible");
 			ImGui::EndDisabled();
 			return false; // data type not supported
 		}
@@ -306,29 +306,29 @@ namespace YimMenu::Submenus
 	{
 		ImGui::SetNextItemWidth(150.f);
 		if (info.m_IsBoolStat)
-			return ImGui::Checkbox("Value##packed", &value.m_AsBool);
+			return ImGui::Checkbox("Valor##packed", &value.m_AsBool);
 		else
 			return ImGui::InputScalar("Value##packed", ImGuiDataType_U8, &value.m_AsInt);
 	}
 
 	std::shared_ptr<Category> BuildStatEditorMenu()
 	{
-		auto menu = std::make_shared<Category>("Stat Editor");
-		auto normal = std::make_shared<Group>("Regular");
-		auto packed = std::make_shared<Group>("Packed");
-		auto packed_range = std::make_shared<Group>("Packed Range");
-		auto from_clipboard = std::make_shared<Group>("From Clipboard");
+		auto menu = std::make_shared<Category>("Editor de estadísticas");
+		auto normal = std::make_shared<Group>("Normales");
+		auto packed = std::make_shared<Group>("Empaquetadas");
+		auto packed_range = std::make_shared<Group>("Rango empaquetado");
+		auto from_clipboard = std::make_shared<Group>("Desde portapapeles");
 
 		normal->AddItem(std::make_unique<ImGuiItem>([] {
 			if (!NativeInvoker::AreHandlersCached())
-				return ImGui::TextDisabled("Natives not cached yet");
+				return ImGui::TextDisabled("Natives no cacheados aún");
 
 			static StatInfo current_info;
 			static char stat_buf[48]{};
 			static StatValue value{};
 
 			ImGui::SetNextItemWidth(300.f);
-			if (ImGui::InputText("Name", stat_buf, sizeof(stat_buf)))
+			if (ImGui::InputText("Nombre", stat_buf, sizeof(stat_buf)))
 			{
 				current_info = GetStatInfo(stat_buf);
 				if (current_info.IsValid())
@@ -336,7 +336,7 @@ namespace YimMenu::Submenus
 			}
 
 			if (!current_info.IsValid())
-				return ImGui::TextDisabled("Stat not found");
+				return ImGui::TextDisabled("Estadística no encontrada");
 			else if (current_info.m_Normalized)
 			{
 				ImGui::Text("Normalized name to: %s", current_info.m_Name.data());
@@ -346,11 +346,11 @@ namespace YimMenu::Submenus
 
 			RenderStatEditor(value, current_info.m_Data);
 
-			if (ImGui::Button("Refresh"))
+			if (ImGui::Button("Actualizar"))
 				ReadStat(value, current_info.m_Data);
 			ImGui::SameLine();
 			ImGui::BeginDisabled(!can_edit);
-			if (ImGui::Button("Write"))
+			if (ImGui::Button("Escribir"))
 				FiberPool::Push([] {
 					WriteStat(current_info.m_NameHash, value, current_info.m_Data);
 				});
@@ -365,14 +365,14 @@ namespace YimMenu::Submenus
 
 		packed->AddItem(std::make_unique<ImGuiItem>([] {
 			if (!NativeInvoker::AreHandlersCached())
-				return ImGui::TextDisabled("Natives not cached yet");
+				return ImGui::TextDisabled("Natives no cacheados aún");
 
 			// TODO: improve packed stat editor
 			static PackedStatInfo current_info{0, false, true};
 			static StatValue value{};
 
 			ImGui::SetNextItemWidth(200.f);
-			if (ImGui::InputInt("Index", &current_info.m_Index))
+			if (ImGui::InputInt("Índice", &current_info.m_Index))
 			{
 				current_info = GetPackedStatInfo(current_info.m_Index);
 				if (current_info.IsValid())
@@ -380,14 +380,14 @@ namespace YimMenu::Submenus
 			}
 
 			if (!current_info.IsValid())
-				return ImGui::TextDisabled("Index not valid");
+				return ImGui::TextDisabled("Índice no válido");
 
 			RenderPackedStatEditor(value, current_info);
 
-			if (ImGui::Button("Refresh##packed"))
+			if (ImGui::Button("Actualizar##packed"))
 				ReadPackedStat(value, current_info);
 			ImGui::SameLine();
-			if (ImGui::Button("Write##packed"))
+			if (ImGui::Button("Escribir##packed"))
 				FiberPool::Push([] {
 					WritePackedStat(value, current_info);
 				});
@@ -395,19 +395,19 @@ namespace YimMenu::Submenus
 
 		packed_range->AddItem(std::make_unique<ImGuiItem>([] {
 			if (!NativeInvoker::AreHandlersCached())
-				return ImGui::TextDisabled("Natives not cached yet");
+				return ImGui::TextDisabled("Natives no cacheados aún");
 
 			static int start{}, end{}, value{};
 
 			ImGui::SetNextItemWidth(150.f);
-			ImGui::InputInt("Start", &start);
+			ImGui::InputInt("Iniciar", &start);
 			ImGui::SameLine();
 			ImGui::SetNextItemWidth(150.f);
-			ImGui::InputInt("End", &end);
+			ImGui::InputInt("Fin", &end);
 			ImGui::SetNextItemWidth(150.f);
 			ImGui::InputScalar("Value##packed_range", ImGuiDataType_U8, &value);
 			ImGui::SameLine();
-			if (ImGui::Button("Write##packed_range"))
+			if (ImGui::Button("Escribir##packed_range"))
 				FiberPool::Push([] {
 					WritePackedStatRange(start, end, value);
 				});
@@ -415,9 +415,9 @@ namespace YimMenu::Submenus
 
 		from_clipboard->AddItem(std::make_unique<ImGuiItem>([] {
 			if (!NativeInvoker::AreHandlersCached())
-				return ImGui::TextDisabled("Natives not cached yet");
+				return ImGui::TextDisabled("Natives no cacheados aún");
 
-			if (ImGui::Button("Load from Clipboard"))
+			if (ImGui::Button("Cargar desde portapapeles"))
 			{
 				auto clip_text = std::string(ImGui::GetClipboardText());
 				FiberPool::Push([clip_text] {

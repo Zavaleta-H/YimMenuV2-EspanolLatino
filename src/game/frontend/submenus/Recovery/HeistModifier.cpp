@@ -9,7 +9,7 @@ namespace YimMenu::Submenus
 {
 	std::shared_ptr<Category> BuildHeistModifierMenu()
 	{
-		auto menu        = std::make_shared<Category>("Heists");
+		auto menu        = std::make_shared<Category>("Golpes");
 		auto heistTabBar = std::make_shared<TabBarItem>("Heist Modifier");
 
 		heistTabBar->AddItem(RenderApartmentHeistMenu());

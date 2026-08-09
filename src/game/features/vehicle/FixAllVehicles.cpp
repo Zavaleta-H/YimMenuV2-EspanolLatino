@@ -23,11 +23,11 @@ namespace YimMenu::Features
 			}
 
 			if (count > 0)
-				Notifications::Show("Fix All Vehicles", std::format("{} vehicles fixed.", count), NotificationType::Success);
+				Notifications::Show("Fix All Vehicles", std::format("{} vehículos reparados.", count), NotificationType::Success);
 			else
-				Notifications::Show("Fix All Vehicles", "No vehicles to fix.");
+				Notifications::Show("Reparar todos", "No hay vehículos que reparar.");
 		}
 	};
 
-	static FixAllVehicles _FixAllVehicles{"fixallvehicles", "Fix All Vehicles", "Fixes all of your destroyed personal vehicles."};
+	static FixAllVehicles _FixAllVehicles{"fixallvehicles", "Arreglar todos los vehículos", "Arreglar todos tus vehículos personales destruidos"};
 }

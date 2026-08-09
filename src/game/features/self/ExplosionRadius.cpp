@@ -22,5 +22,5 @@ namespace YimMenu::Features
 		}  
 	};  
 
-	static ExplosionRadius _ExplosionRadius{"explosionradius", "Weapon Explosion Radius", "Modifying Weapon Explosion Radius"};  
+	static ExplosionRadius _ExplosionRadius{"explosionradius", "Radio de explosión del arma", "Modifica el radio de explosión del arma"};  
 }

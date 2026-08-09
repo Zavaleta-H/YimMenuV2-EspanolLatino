@@ -79,7 +79,7 @@ namespace YimMenu::Submenus
 
 			if (players.size() == 0)
 			{
-				ImGui::TextDisabled("No saved players");
+				ImGui::TextDisabled("No hay jugadores guardados");
 				ImGui::EndListBox();
 				return;
 			}
@@ -112,7 +112,7 @@ namespace YimMenu::Submenus
 		if (ImGui::BeginChild("##player-editor", {500, -100 /* static_cast<float>(*Pointers.ScreenResY - 688 - 38 * 4) */}, 0, ImGuiWindowFlags_NoBackground))
 		{
 			ImGui::SetNextItemWidth(180.f);
-			if (ImGui::InputText("Name", g_SelectedPlayerName, sizeof(g_SelectedPlayerName)))
+			if (ImGui::InputText("Nombre", g_SelectedPlayerName, sizeof(g_SelectedPlayerName)))
 			{
 				g_SelectedPlayer->m_Name = g_SelectedPlayerName;
 			}
@@ -125,43 +125,43 @@ namespace YimMenu::Submenus
 				g_SelectedPlayer = SavedPlayers::GetPlayerData(g_SelectedRid);
 			}
 
-			ImGui::Checkbox("Track Player", &g_SelectedPlayer->m_TrackPlayer);
+			ImGui::Checkbox("Rastrear jugador", &g_SelectedPlayer->m_TrackPlayer);
 
 			if (g_SelectedPlayer->m_FetchedData)
 			{
 				auto& data = *g_SelectedPlayer->m_FetchedData;
-				ImGui::Text("Session Type: %s", FetchedPlayerData::GameStateToString(data.m_GameState).data());
-				ImGui::Text("Host of Session: %s", data.m_HostOfSession ? "Yes" : "No");
-				ImGui::Text("Is Spectating: %s", data.m_Spectating ? "Yes" : "No");
-				ImGui::Text("Is Job Lobby: %s", data.m_InTransition ? "Yes" : "No");
-				ImGui::Text("Host of Job Lobby: %s", data.m_HostOfTransition ? "Yes" : "No");
+				ImGui::Text("Tipo de sesión: %s", FetchedPlayerData::GameStateToString(data.m_GameState).data());
+				ImGui::Text("Anfitrión de la sesión: %s", data.m_HostOfSession ? "Yes" : "No");
+				ImGui::Text("Está observando: %s", data.m_Spectating ? "Yes" : "No");
+				ImGui::Text("Es lobby de actividad: %s", data.m_InTransition ? "Yes" : "No");
+				ImGui::Text("Anfitrión del lobby de actividad: %s", data.m_HostOfTransition ? "Yes" : "No");
 				if (data.m_MissionType != FetchedPlayerData::MissionType::NONE)
 				{
-					ImGui::Text("Mission Type: %s", FetchedPlayerData::MissionTypeToString(data.m_MissionType).data());
+					ImGui::Text("Tipo de misión: %s", FetchedPlayerData::MissionTypeToString(data.m_MissionType).data());
 					if (data.m_MissionName)
-						ImGui::Text("Mission Name: %s", data.m_MissionName->data());
+						ImGui::Text("Nombre de la misión: %s", data.m_MissionName->data());
 					else
 						; // TODO: add fetch mission name
 				}
 			}
 			else
 			{
-				ImGui::TextDisabled("Data not fetched yet");
+				ImGui::TextDisabled("Los datos aún no se han obtenido");
 			}
 
-			if (ImGui::Button("Join"))
+			if (ImGui::Button("Unirse"))
 			{
 				FiberPool::Push([] {
 					Network::JoinRockstarId(g_SelectedRid);
 				});
 			}
 
-			if (ImGui::Button("Save"))
+			if (ImGui::Button("Guardar"))
 			{
 				SavedPlayers::Save();
 			}
 			ImGui::SameLine();
-			if (ImGui::Button("Remove"))
+			if (ImGui::Button("Quitar"))
 			{
 				SavedPlayers::RemovePlayerData(g_SelectedRid);
 				g_SelectedPlayer = nullptr;
@@ -183,9 +183,9 @@ namespace YimMenu::Submenus
 		static char name_buf[24]{};
 
 		ImGui::SetNextItemWidth(180.0f);
-		ImGui::InputText("Username", name_buf, sizeof(name_buf));
+		ImGui::InputText("Nombre de usuario", name_buf, sizeof(name_buf));
 		ImGui::SameLine();
-		if (ImGui::Button("Add"))
+		if (ImGui::Button("Añadir"))
 			FiberPool::Push([] {
 				auto rid = YimMenu::Network::ResolveRockstarId(name_buf);
 				if (rid)
@@ -194,18 +194,18 @@ namespace YimMenu::Submenus
 				}
 				else
 				{
-					Notifications::Show("Saved Players", "Failed to get RID from username", NotificationType::Error);
+					Notifications::Show("Jugadores guardados", "No se pudo obtener el RID del nombre de usuario.", NotificationType::Error);
 				}
 			});
 	}
 
 	std::shared_ptr<Category> BuildSavedPlayersMenu()
 	{
-		auto menu = std::make_shared<Category>("Saved Players");
-		auto players = std::make_shared<Group>("Players");
-		auto new_player = std::make_shared<Group>("New");
-		auto tracking = std::make_shared<Group>("Tracking");
-		auto notifications = std::make_shared<Group>("Notifications");
+		auto menu = std::make_shared<Category>("Jugadores guardados");
+		auto players = std::make_shared<Group>("Jugadores");
+		auto new_player = std::make_shared<Group>("Nuevo");
+		auto tracking = std::make_shared<Group>("Seguimiento");
+		auto notifications = std::make_shared<Group>("Notificaciones");
 
 		players->AddItem(std::make_shared<ImGuiItem>([] {
 			RenderSavedPlayers();
@@ -224,11 +224,11 @@ namespace YimMenu::Submenus
 		notifications->AddItem(std::make_shared<BoolCommandItem>("playerdbnotifyonjoblobby"_J));
 
 		auto update = std::make_shared<Group>("", 1);
-		update->AddItem(std::make_shared<BoolCommandItem>("playerdbautoupdate"_J, "Auto Update"));
-		update->AddItem(std::make_shared<CommandItem>("playerdbupdatenow"_J, "Update Now"));
+		update->AddItem(std::make_shared<BoolCommandItem>("playerdbautoupdate"_J, "Actualización automática"));
+		update->AddItem(std::make_shared<CommandItem>("playerdbupdatenow"_J, "Actualizar ahora"));
 
 		tracking->AddItem(std::move(update));
-		tracking->AddItem(std::make_shared<BoolCommandItem>("playerdbnotify"_J, "Tracking Notifications"));
+		tracking->AddItem(std::make_shared<BoolCommandItem>("playerdbnotify"_J, "Notificaciones de seguimiento"));
 		tracking->AddItem(std::make_shared<ConditionalItem>("playerdbnotify"_J, std::move(notifications)));
 
 		menu->AddItem(players);

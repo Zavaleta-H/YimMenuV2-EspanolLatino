@@ -25,11 +25,11 @@ namespace YimMenu::Submenus
 
 		if (ImGui::BeginPopupModal("##deletelocation", nullptr, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove))
 		{
-			ImGui::Text("Are you sure you want to delete %s?", locationToDelete.name.data());
+			ImGui::Text("¿Seguro que quieres eliminar %s?", locationToDelete.name.data());
 
 			ImGui::Spacing();
 
-			if (ImGui::Button("Yes"))
+			if (ImGui::Button("Sí"))
 			{
 				SavedLocations::DeleteSavedLocation(category, locationToDelete.name);
 				locationToDelete.name = "";
@@ -52,16 +52,16 @@ namespace YimMenu::Submenus
 		InputTextWithHint("Location Name", "New location", &newLocationName).Draw();
 		ImGui::PopItemWidth();
 
-		if (ImGui::Button("Save Current Location")) // Button widget still crashes
+		if (ImGui::Button("Guardar ubicación actual")) // Button widget still crashes
 		{
 			FiberPool::Push([=] {
 				if (newLocationName.empty())
 				{
-					Notifications::Show("Custom Teleport", "Please enter a valid name", NotificationType::Warning);
+					Notifications::Show("Teletransporte personalizado", "Ingresa un nombre válido.", NotificationType::Warning);
 				}
 				else if (SavedLocations::GetSavedLocationByName(newLocationName))
 				{
-					Notifications::Show("Custom Teleport", std::format("Location with name {} already exists", newLocationName));
+					Notifications::Show("Custom Teleport", std::format("Ya existe una ubicación con el nombre {}", newLocationName));
 				}
 				else
 				{
@@ -86,7 +86,7 @@ namespace YimMenu::Submenus
 
 		ImGui::Separator();
 
-		ImGui::Text("Double click to teleport\nShift click to delete");
+		ImGui::Text("Doble clic para teletransportar\nMayús + clic para eliminar");
 
 		ImGui::Spacing();
 
@@ -94,7 +94,7 @@ namespace YimMenu::Submenus
 		InputTextWithHint("##filter", "Search", &filter).Draw();
 
 		ImGui::BeginGroup();
-		ImGui::Text("Categories");
+		ImGui::Text("Categorías");
 		if (ImGui::BeginListBox("##categories", {200, -1}))
 		{
 			for (auto& l : SavedLocations::GetAllSavedLocations() | std::ranges::views::keys)
@@ -114,7 +114,7 @@ namespace YimMenu::Submenus
 		ImGui::EndGroup();
 		ImGui::SameLine();
 		ImGui::BeginGroup();
-		ImGui::Text("Locations");
+		ImGui::Text("Ubicaciones");
 		if (ImGui::BeginListBox("##saved_locs", {200, -1})) // Need automatic dimensions instead of hard coded
 		{
 			if (SavedLocations::GetAllSavedLocations().find(category) != SavedLocations::GetAllSavedLocations().end())
@@ -151,7 +151,7 @@ namespace YimMenu::Submenus
 						ImGui::BeginTooltip();
 						if (l.name.length() > 27)
 							ImGui::Text("%s", l.name.data());
-						ImGui::Text("Distance: %f", GetDistanceFromLocation(l));
+						ImGui::Text("Distancia: %f", GetDistanceFromLocation(l));
 						ImGui::EndTooltip();
 					}
 				}
@@ -167,10 +167,10 @@ namespace YimMenu::Submenus
 
 	Teleport::Teleport() :
 		#define ICON_FA_TELEPORT "\xef\x8f\x85"
-	    Submenu::Submenu("Teleport", ICON_FA_TELEPORT)
+	    Submenu::Submenu("Teletransporte", ICON_FA_TELEPORT)
 	{
-		auto main = std::make_shared<Category>("Main");
-		auto miscGroup = std::make_shared<Group>("Misc");
+		auto main = std::make_shared<Category>("Principal");
+		auto miscGroup = std::make_shared<Group>("Otros");
 
 		miscGroup->AddItem(std::make_shared<ConditionalItem>("autotptowaypoint"_J, std::make_shared<CommandItem>("tptowaypoint"_J), true));
 		miscGroup->AddItem(std::make_shared<BoolCommandItem>("autotptowaypoint"_J));
@@ -178,7 +178,7 @@ namespace YimMenu::Submenus
 
 		main->AddItem(miscGroup);
 
-		auto customteleport = std::make_shared<Category>("Saved");
+		auto customteleport = std::make_shared<Category>("Guardados");
 		customteleport->AddItem(std::make_shared<ImGuiItem>([] {
 			RenderCustomTeleport();
 		}));

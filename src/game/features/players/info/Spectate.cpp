@@ -35,5 +35,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static Spectate _Spectate{"spectate", "Spectate", "Spectates the selected player"};
+	static Spectate _Spectate{"spectate", "Espectar", "Especta al jugador seleccionado"};
 }

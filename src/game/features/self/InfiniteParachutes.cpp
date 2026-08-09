@@ -20,5 +20,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static InfiniteParachutes _InfiniteParachutes{"infiniteparachutes", "Infinite Parachutes", "Always have a parachute"};
+	static InfiniteParachutes _InfiniteParachutes{"infiniteparachutes", "Paracaídas infinitos", "Siempre tener paracaídas"};
 };

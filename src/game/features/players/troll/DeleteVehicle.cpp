@@ -13,5 +13,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static DeleteVehicle _DeleteVehicle{"deleteveh", "Delete Vehicle", "Deletes the vehicle the player is in"};
+	static DeleteVehicle _DeleteVehicle{"deleteveh", "Eliminar vehículo", "Elimina el vehículo en el que está el jugador"};
 }

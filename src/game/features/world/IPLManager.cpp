@@ -77,7 +77,7 @@ namespace YimMenu::Features
 		}
 	};
 
-	static IPLLoader _IPLLoader{"loadipl", "Load IPL", "Load IPL"};
-	static IPLUnloader _IPLUnloader{"unloadipl", "Unload IPL", "Unload IPL"};
-	static IPLTeleport _IPLTeleport{"ipltp", "Teleport to IPL", "Teleport to the selected IPL"};
+	static IPLLoader _IPLLoader{"loadipl", "Cargar IPL", "Cargar IPL"};
+	static IPLUnloader _IPLUnloader{"unloadipl", "Descargar IPL", "Descargar IPL"};
+	static IPLTeleport _IPLTeleport{"ipltp", "Teletransportar al IPL", "Teletransporta al IPL seleccionado"};
 };

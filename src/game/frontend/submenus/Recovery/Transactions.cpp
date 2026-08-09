@@ -194,7 +194,7 @@ namespace YimMenu::Submenus
 
 					if (!NETSHOPPING::NET_GAMESERVER_BASKET_START(&txn_id, info.m_Category.m_Hash, info.m_Action.m_Hash, 4))
 					{
-						Notifications::Show("Transactions", "Failed to create basket", NotificationType::Error);
+						Notifications::Show("Transacciones", "No se pudo crear la cesta.", NotificationType::Error);
 						txn_failed = true;
 						NETSHOPPING::NET_GAMESERVER_BASKET_END();
 						return;
@@ -232,7 +232,7 @@ namespace YimMenu::Submenus
 				{
 					if (!NETSHOPPING::NET_GAMESERVER_BEGIN_SERVICE(&txn_id, info.m_Category.m_Hash, info.m_Service.m_Item.m_Hash, info.m_Action.m_Hash, info.m_Service.m_Price, 4))
 					{
-						Notifications::Show("Transactions", "Failed to create service", NotificationType::Error);
+						Notifications::Show("Transacciones", "No se pudo crear el servicio.", NotificationType::Error);
 						txn_failed = true;
 						return;
 					}
@@ -245,7 +245,7 @@ namespace YimMenu::Submenus
 
 				if (!NETSHOPPING::NET_GAMESERVER_CHECKOUT_START(txn_id))
 				{
-					Notifications::Show("Transactions", "Failed to begin checkout", NotificationType::Error);
+					Notifications::Show("Transacciones", "No se pudo iniciar el pago.", NotificationType::Error);
 					txn_failed = true;
 					return;
 				}
@@ -258,11 +258,11 @@ namespace YimMenu::Submenus
 
 				if (txn->m_Status == 3)
 				{
-					Notifications::Show("Transactions", "Transaction complete", NotificationType::Success);
+					Notifications::Show("Transacciones", "Transacción completada", NotificationType::Success);
 				}
 				else
 				{
-					Notifications::Show("Transactions", "Transaction failed", NotificationType::Error);
+					Notifications::Show("Transacciones", "Transacción fallida", NotificationType::Error);
 				}
 			}
 		});
@@ -462,12 +462,12 @@ namespace YimMenu::Submenus
 			}
 
 			ImGui::SetNextItemWidth(180.0f);
-			ImGui::InputInt("Price", &item.m_Price);
+			ImGui::InputInt("Precio", &item.m_Price);
 
 			ImGui::SetNextItemWidth(180.0f);
-			ImGui::InputInt("Stat Value", &item.m_StatValue); // I'm not actually sure what this does ngl
+			ImGui::InputInt("Valor de estadística", &item.m_StatValue); // I'm not actually sure what this does ngl
 
-			if (info.m_Basket.m_BasketItems.size() > 1 && ImGui::Button("Delete"))
+			if (info.m_Basket.m_BasketItems.size() > 1 && ImGui::Button("Eliminar"))
 				item_to_delete = i;
 			ImGui::PopID();
 
@@ -478,7 +478,7 @@ namespace YimMenu::Submenus
 		if (item_to_delete.has_value())
 			info.m_Basket.m_BasketItems.erase(std::next(info.m_Basket.m_BasketItems.begin(), *item_to_delete));
 
-		if (ImGui::Button("Add Item"))
+		if (ImGui::Button("Añadir objeto"))
 		{
 			info.m_Basket.m_BasketItems.push_back({});
 		}
@@ -491,7 +491,7 @@ namespace YimMenu::Submenus
 		if (info.m_Service.m_Item.m_IntendedPrice != 0 || info.m_Action.m_Hash != "NET_SHOP_ACTION_EARN"_J)
 		{
 			ImGui::SetNextItemWidth(180.0f);
-			ImGui::InputInt("Price", &info.m_Service.m_Price);
+			ImGui::InputInt("Precio", &info.m_Service.m_Price);
 			if (info.m_Service.m_Price > info.m_Service.m_Item.m_IntendedPrice && info.m_Action.m_Hash == "NET_SHOP_ACTION_EARN"_J)
 			{
 				SetTransactionError(std::format("Item price exceeds maximum allowed ({})", info.m_Service.m_Item.m_IntendedPrice));
@@ -502,26 +502,26 @@ namespace YimMenu::Submenus
 
 	std::shared_ptr<Category> BuildTransactionsMenu()
 	{
-		auto menu = std::make_shared<Category>("Transactions");
-		auto normal = std::make_shared<Group>("Triggerer");
+		auto menu = std::make_shared<Category>("Transacciones");
+		auto normal = std::make_shared<Group>("Disparador");
 
 		normal->AddItem(std::make_unique<ImGuiItem>([] {
 			if (!NativeInvoker::AreHandlersCached())
-				return ImGui::TextDisabled("Natives not cached yet");
+				return ImGui::TextDisabled("Natives no cacheados aún");
 
 			if (AnticheatBypass::IsFSLProvidingLocalSaves())
-				return ImGui::TextDisabled("Transactions are not supported with FSL local saves enabled");
+				return ImGui::TextDisabled("Las transacciones no son compatibles con los guardados FSL locales activados");
 
 			if (!NETSHOPPING::NET_GAMESERVER_CATALOG_IS_VALID())
-				return ImGui::TextDisabled("Catalog not loaded yet");
+				return ImGui::TextDisabled("El catálogo no ha cargado aún");
 
-			ImGui::Text("Warning: You are solely responsible for what you do with this tool. If you don't know what you're doing, you'll likely get banned");
+			ImGui::Text("Advertencia: eres únicamente responsable for what you do with this tool. If you don't know what you're doing, you'll likely get banned");
 
 			static TransactionInfo info{};
 			bool txn_valid{true};
 
 			ImGui::SetNextItemWidth(180.0f);
-			if (ImGui::Combo("Type", reinterpret_cast<int*>(&info.m_Type), "Basket\0Service\0"))
+			if (ImGui::Combo("Tipo", reinterpret_cast<int*>(&info.m_Type), "Basket\0Service\0"))
 				OnTransactionTypeChanged(info);
 
 			ImGui::SetNextItemWidth(250.0f);
@@ -578,7 +578,7 @@ namespace YimMenu::Submenus
 			ImGui::Separator();
 
 			ImGui::BeginDisabled(!txn_valid);
-			if (ImGui::Button("Trigger"))
+			if (ImGui::Button("Activador"))
 				FiberPool::Push([] {
 					ProcessTransaction(info);
 				});

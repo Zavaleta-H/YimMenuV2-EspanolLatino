@@ -31,5 +31,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static Blackscreen _Blackscreen{"blackscreen", "Blackscreen", "Forces the player into an infinite loading screen that can only be fixed by restarting the game"};
+	static Blackscreen _Blackscreen{"blackscreen", "Pantalla negra", "Fuerza al jugador a una pantalla de carga infinita que solo se arregla reiniciando el juego"};
 }

@@ -23,6 +23,6 @@ namespace YimMenu::Features
 		}
 	};
 
-	static PedIgnore _PedIgnore{"pedsignore", "Peds Ignore", "Nearby peds will ignore you and become oblivious to your actions."};
+	static PedIgnore _PedIgnore{"pedsignore", "Peds ignoran", "Los peds cercanos te ignoran y no se dan cuenta de tus acciones."};
 
 }

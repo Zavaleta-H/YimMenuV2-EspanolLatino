@@ -14,5 +14,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static Suicide _Suicide{"suicide", "Suicide", "Kills you"};
+	static Suicide _Suicide{"suicide", "Suicidio", "Te mata"};
 }

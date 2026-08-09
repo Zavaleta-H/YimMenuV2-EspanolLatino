@@ -93,5 +93,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static Noclip _NoClip{"noclip", "No Clip", "Allows you to fly through the map"};
+	static Noclip _NoClip{"noclip", "Atravesar paredes", "Te permite volar atravesando el mapa"};
 }

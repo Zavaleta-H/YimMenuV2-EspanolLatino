@@ -143,5 +143,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static Freecam _Freecam{"freecam", "Freecam", "Detaches your camera and allows you to go anywhere!"};
+	static Freecam _Freecam{"freecam", "Cámara libre", "Separa tu cámara y te permite ir a cualquier parte"};
 }

@@ -14,5 +14,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static EnterLastVehicle _EnterLastVehicle{"enterlastvehicle", "Enter Last Vehicle", "Enters the last vehicle you were in"};
+	static EnterLastVehicle _EnterLastVehicle{"enterlastvehicle", "Reparar vehículo", "Arregla cualquier daño de tu vehículo actual"};
 };

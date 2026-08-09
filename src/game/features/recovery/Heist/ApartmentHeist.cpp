@@ -149,13 +149,13 @@ namespace YimMenu::Features
 			}
 		};
 
-		static SetCuts _ApartmentHeistSetCuts{"apartmentheistsetcuts", "Set Cuts", "Sets heist cut"};
-		static ForceReady _ApartmentHeistForceReady{"apartmentheistforceready", "Force Ready", "Forces all players to be ready"};
-		static Setup _ApartmentHeistSetup{"apartmentheistsetup", "Setup", "Sets up current apartment heist"};
-		static SkipHacking _ApartmentHeistSkipHacking{"apartmentheistskiphacking", "Skip Hacking", "Skips hacking process"};
-		static SkipDrilling _ApartmentHeistSkipDrilling{"apartmentheistskipdrilling", "Skip Drilling", "Skips drilling process"};
-		static SkipSwiping _ApartmentHeistSkipSwiping{"apartmentheistskipswiping", "Skip Swiping", "Skips card swiping process"};
-		static InstantFinish _ApartmentHeistInstantFinish{"apartmentheistinstantfinish", "Instant Finish", "Instantly passes the heist"};
-		static InstantFinishPacific _ApartmentHeistInstantFinishPacific{"apartmentheistinstantfinishpacific", "Instant Finish (Pacific)", "Instantly passes Pacific Standard Job"};
+		static SetCuts _ApartmentHeistSetCuts{"apartmentheistsetcuts", "Establecer reparto", "Establece el reparto del golpe"};
+		static ForceReady _ApartmentHeistForceReady{"apartmentheistforceready", "Forzar listo", "Fuerza a todos los jugadores a estar listos"};
+		static Setup _ApartmentHeistSetup{"apartmentheistsetup", "Preparar", "Prepara el golpe de departamento actual"};
+		static SkipHacking _ApartmentHeistSkipHacking{"apartmentheistskiphacking", "Omitir hackeo", "Omitir el proceso de hackeo"};
+		static SkipDrilling _ApartmentHeistSkipDrilling{"apartmentheistskipdrilling", "Omitir taladro", "Omitir el proceso de taladro"};
+		static SkipSwiping _ApartmentHeistSkipSwiping{"apartmentheistskipswiping", "Omitir tarjetas", "Omitir el proceso de pasar tarjetas"};
+		static InstantFinish _ApartmentHeistInstantFinish{"apartmentheistinstantfinish", "Finalizar al instante", "Aprueba el golpe al instante"};
+		static InstantFinishPacific _ApartmentHeistInstantFinishPacific{"apartmentheistinstantfinishpacific", "Finalizar al instante (Pacific)", "Aprueba el Pacific Standard Job al instante"};
 	}
 }

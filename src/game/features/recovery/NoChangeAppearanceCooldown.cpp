@@ -23,5 +23,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static NoChangeAppearanceCooldown _NoChangeAppearanceCooldown{"nochangeappearancecooldown", "No Change Appearance Cooldown", "Removes the cooldown for changing appearance"};
+	static NoChangeAppearanceCooldown _NoChangeAppearanceCooldown{"nochangeappearancecooldown", "Sin espera para cambiar apariencia", "Elimina la espera para cambiar la apariencia"};
 }

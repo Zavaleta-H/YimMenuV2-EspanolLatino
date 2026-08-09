@@ -30,5 +30,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static ForceThunder _ForceThunder{"forcethunder", "Force Thunder", "Forces the weather to thunder for all players in the session"};
+	static ForceThunder _ForceThunder{"forcethunder", "Forzar tormenta", "Fuerza el clima tormenta para todos los jugadores en la sesión"};
 }

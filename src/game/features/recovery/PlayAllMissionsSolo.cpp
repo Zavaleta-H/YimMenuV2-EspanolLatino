@@ -274,5 +274,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static PlayAllMissionsSolo _PlayAllMissionsSolo{"playallmissionssolo", "Play All Missions Solo", "Allows you to play any mission solo. Note that some missions might break if there aren't enough players"};
+	static PlayAllMissionsSolo _PlayAllMissionsSolo{"playallmissionssolo", "Jugar todas las misiones solo", "Te permite jugar cualquier misión en solitario. Ten en cuenta que algunas misiones pueden romperse si no hay suficientes jugadores"};
 }

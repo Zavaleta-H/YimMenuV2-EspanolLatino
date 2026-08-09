@@ -56,8 +56,8 @@ namespace YimMenu::Features
 		}
 	};
 
-	static ClearWanted _ClearWanted{"clearwanted", "Clear Wanted", "Clears your wanted level"};
-	static SetWanted _SetWanted{"setwanted", "Set Wanted", "Sets your wanted level to the desired level"};
-	static NeverWanted _NeverWanted{"neverwanted", "Never Wanted", "Never gain a wanted level"};
-	static FreezeWanted _FreezeWanted{"freezewanted", "Freeze Wanted", "Freeze your wanted level to the desired level"};
+	static ClearWanted _ClearWanted{"clearwanted", "Quitar nivel de búsqueda", "Limpia tu nivel de búsqueda"};
+	static SetWanted _SetWanted{"setwanted", "Establecer nivel de búsqueda", "Pone tu nivel de búsqueda al nivel que quieras"};
+	static NeverWanted _NeverWanted{"neverwanted", "Nunca buscado", "Nunca te ponga un nivel de búsqueda"};
+	static FreezeWanted _FreezeWanted{"freezewanted", "Congelar búsqueda", "Congela tu nivel de búsqueda en el nivel que quieras"};
 }

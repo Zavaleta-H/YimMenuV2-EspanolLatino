@@ -14,5 +14,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static TeleportToPlayer _TeleportToPlayer{"tptoplayer", "Teleport to Player", "Teleports you to the selected player"};
+	static TeleportToPlayer _TeleportToPlayer{"tptoplayer", "Teletransportarse al jugador", "Te teletransportas al jugador seleccionado"};
 }

@@ -85,5 +85,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static RapidFire _RapidFire{"rapidfire", "Rapid Fire", "Increases the fire rate of your weapons substantially"};
+	static RapidFire _RapidFire{"rapidfire", "Disparo rápido", "Aumenta considerablemente la cadencia de tu arma"};
 }

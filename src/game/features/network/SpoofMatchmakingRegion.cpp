@@ -40,5 +40,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static SpoofMatchmakingRegion _SpoofMatchmakingRegion{"spoofmmregion", "Spoof Matchmaking Region", "Change the region you matchmake in to the specified value"};
+	static SpoofMatchmakingRegion _SpoofMatchmakingRegion{"spoofmmregion", "Suplantar región de emparejado", "Cambia la región de emparejamiento por el valor especificado"};
 }

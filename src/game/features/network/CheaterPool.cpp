@@ -31,7 +31,7 @@ namespace YimMenu::Features
 		}
 	};
 
-	static CheaterPool _CheaterPool{"cheaterpool", "Join YimMenu-only Sessions", "Matchmaking will put you into sessions with other YimMenu users."};
+	static CheaterPool _CheaterPool{"cheaterpool", "Unirse solo a sesiones de YimMenu", "El emparejamiento te meterá en sesiones con otros usuarios de YimMenu"};
 }
 
 namespace YimMenu::Hooks

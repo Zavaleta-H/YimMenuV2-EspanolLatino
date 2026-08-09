@@ -18,5 +18,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static ScriptHostKick _ScriptHostKick{"shkick", "Script Host Kick", "Kicks the player by faking a vote kick"};
+	static ScriptHostKick _ScriptHostKick{"shkick", "Expulsión de host de script", "Expulsa al jugador simulando una votación de expulsión"};
 }

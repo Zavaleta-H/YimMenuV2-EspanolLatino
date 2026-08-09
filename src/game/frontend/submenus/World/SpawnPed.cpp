@@ -15,7 +15,7 @@ namespace YimMenu::Submenus
 {
 	std::shared_ptr<Category> BuildSpawnPedMenu()
 	{
-		auto menu = std::make_shared<Category>("Spawn Ped");
+		auto menu = std::make_shared<Category>("Generar PNJ");
 
 		static bool invincible;
 		static bool spawnDead;
@@ -198,16 +198,16 @@ namespace YimMenu::Submenus
 			ImGui::SameLine();
 			ImGui::BeginGroup();
 			ImGui::BulletText("Ctrl+Click to set player model");
-			ImGui::Checkbox("Invincible", &invincible);
-			ImGui::Checkbox("Spawn Dead", &spawnDead);
-			ImGui::Checkbox("Spawn As Bodyguard", &spawnAsBodyguard);
-			ImGui::Checkbox("Spawn As Cop", &spawnAsCop);
-			ImGui::Checkbox("Spawn In My Vehicle", &spawnInMyVehicle);
-			ImGui::Checkbox("Give All Weapons", &giveAllWeapons);
-			ImGui::Checkbox("Spawn As Prostitute", &spawnAsProstitute);
-			ImGui::Checkbox("Randomize Outfit", &randomizeOutfit);
-			ImGui::Checkbox("Blip Ped", &blipPed);
-			if (ImGui::Button("Remove All"))
+			ImGui::Checkbox("Invencible", &invincible);
+			ImGui::Checkbox("Spawnear muerto", &spawnDead);
+			ImGui::Checkbox("Spawnear como guardaespaldas", &spawnAsBodyguard);
+			ImGui::Checkbox("Spawnear como policía", &spawnAsCop);
+			ImGui::Checkbox("Spawnear en mi vehículo", &spawnInMyVehicle);
+			ImGui::Checkbox("Dar todas las armas", &giveAllWeapons);
+			ImGui::Checkbox("Spawnear como prostituta", &spawnAsProstitute);
+			ImGui::Checkbox("Atuendo aleatorio", &randomizeOutfit);
+			ImGui::Checkbox("Blip del ped", &blipPed);
+			if (ImGui::Button("Quitar todos"))
 			{
 				FiberPool::Push([] {
 					for (auto& ped : spawnedPeds)

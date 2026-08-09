@@ -57,7 +57,7 @@ namespace YimMenu::Features
 			MISC::SET_WEATHER_TYPE_PERSIST(g_WeatherCodes[_Weather.GetState()]);
 		}
 	};
-	static SetWeather _SetWeather{"setweather", "Set Weather", "Sets the specifed weather. Note that this effect is local and cannot be seen by other players"};
+	static SetWeather _SetWeather{"setweather", "Clima", "Establece el clima especificado. Ten en cuenta que este efecto es local y no lo ven los demás"};
 
 	class ForceWeather : public LoopedCommand
 	{
@@ -131,5 +131,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static ForceWeather _ForceWeather{"forceweather", "Force Weather", "Forces the specified weather. Note that this effect is local and cannot be seen by other players"};
+	static ForceWeather _ForceWeather{"forceweather", "Forzar clima", "Fuerza el clima especificado. Ten en cuenta que este efecto es local y no lo ven los demás"};
 }

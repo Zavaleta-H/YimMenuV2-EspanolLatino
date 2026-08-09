@@ -217,7 +217,7 @@ namespace YimMenu
 	static void DrawColorsTab()
 	{
 		bool changed = false;
-		ImGui::Text("Modify Colors:");
+		ImGui::Text("Modificar colores:");
 		ImGui::Separator();
 		for (int i = 0; i < ImGuiCol_COUNT; ++i)
 		{
@@ -240,7 +240,7 @@ namespace YimMenu
 	static void DrawRoundingTab()
 	{
 		bool changed = false;
-		ImGui::Text("Adjust Rounding:");
+		ImGui::Text("Ajustar redondeo:");
 		ImGui::Separator();
 		for (auto& [k, v] : g_RoundingValues)
 			if (ImGui::SliderFloat(PrettyPrintLabel(k).c_str(), &v, 0.0f, 20.0f, "%.1f"))
@@ -256,7 +256,7 @@ namespace YimMenu
 	static void DrawLayoutTab()
 	{
 		auto& s = ImGui::GetStyle();
-		ImGui::Text("Layout & Alignment:");
+		ImGui::Text("Diseño y alineación:");
 		ImGui::Separator();
 		DrawStyleVec2("WindowPadding", s.WindowPadding.x, s.WindowPadding.y, 0.f, 32.f);
 		DrawStyleVec2("ItemSpacing", s.ItemSpacing.x, s.ItemSpacing.y, 0.f, 32.f);
@@ -275,7 +275,7 @@ namespace YimMenu
 	static void DrawBorderTab()
 	{
 		auto& s = ImGui::GetStyle();
-		ImGui::Text("Border Sizes:");
+		ImGui::Text("Tamaños de borde:");
 		ImGui::Separator();
 		DrawStyleFloat("WindowBorderSize", s.WindowBorderSize, 0.f, 8.f);
 		DrawStyleFloat("FrameBorderSize", s.FrameBorderSize, 0.f, 8.f);
@@ -286,7 +286,7 @@ namespace YimMenu
 	static void DrawGlobalTab()
 	{
 		auto& s = ImGui::GetStyle();
-		ImGui::Text("Global Settings:");
+		ImGui::Text("Configuración global:");
 		ImGui::Separator();
 		DrawStyleFloat("GlobalAlpha", s.Alpha, 0.1f, 1.f);
 		DrawStyleFloat("DisabledAlpha", s.DisabledAlpha, 0.f, 1.f);
@@ -298,20 +298,20 @@ namespace YimMenu
 	{
 		ImGuiIO& io = ImGui::GetIO();
 		static float scale = io.FontGlobalScale;
-		ImGui::Text("Font Configuration:");
+		ImGui::Text("Configuración de fuentes:");
 		ImGui::Separator();
 		ImGui::Text("Current Scale: %.2f", io.FontGlobalScale);
-		ImGui::SliderFloat("Font Scale", &scale, 0.5f, 2.0f, "%.2f");
-		if (ImGui::Button("Apply Font Scale"))
+		ImGui::SliderFloat("Escala de fuente", &scale, 0.5f, 2.0f, "%.2f");
+		if (ImGui::Button("Aplicar escala de fuente"))
 			io.FontGlobalScale = scale;
 	}
 
 	std::shared_ptr<Category> DrawGUISettingsMenu()
 	{
 		InitializeColorCommands();
-		auto imGuiCustomStyle = std::make_shared<Category>("Customize");
+		auto imGuiCustomStyle = std::make_shared<Category>("Personalizar");
 		imGuiCustomStyle->AddItem(std::make_unique<ImGuiItem>([] {
-			ImGui::Text("ImGui Style Editor");
+			ImGui::Text("Editor de estilo de ImGui");
 			ImGui::Separator();
 			if (ImGui::BeginTabBar("StyleTabs"))
 			{

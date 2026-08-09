@@ -367,14 +367,14 @@ namespace YimMenu::Features
 			}
 		};
 
-		static SetCuts _DiamondCasinoHeistSetCuts{"diamondcasinoheistsetcuts", "Set Cuts", "Sets heist cut"};
-		static ForceReady _DiamondCasinoHeistForceReady{"diamondcasinoheistforceready", "Force Ready", "Forces all players to be ready"};
-		static Setup _DiamondCasinoHeistSetup{"diamondcasinoheistsetup", "Setup", "Sets up diamond casino heist"};
-		static SetPotentialTake _DiamondCasinoHeistSetPotentialTake{"diamondcasinoheistsetpotentialtake", "Set Potential Take", "Updates potential take"};
-		static SetActualTake _DiamondCasinoHeistSetActualTake{"diamondcasinoheistsetactualtake", "Set Actual Take", "Updates actual take"};
-		static SkipHacking _DiamondCasinoHeistSkipHacking{"diamondcasinoheistskiphacking", "Skip Hacking", "Skips hacking process"};
-		static SkipDrilling _DiamondCasinoHeistSkipDrilling{"diamondcasinoheistskipdrilling", "Skip Drilling", "Skips drilling process"};
-		static SoloMantrap _DiamondCasinoHeistSoloMantrap{"diamondcasinoheistsolomantrap", "Solo Mantrap", "Skips card swiping process"};
-		static InstantFinish _DiamondCasinoHeistInstantFinish{"diamondcasinoheistinstantfinish", "Instant Finish", "Instantly passes the heist"};
+		static SetCuts _DiamondCasinoHeistSetCuts{"diamondcasinoheistsetcuts", "Establecer reparto", "Establece el reparto del golpe"};
+		static ForceReady _DiamondCasinoHeistForceReady{"diamondcasinoheistforceready", "Forzar", "Fuerza a todos los jugadores a estar listos"};
+		static Setup _DiamondCasinoHeistSetup{"diamondcasinoheistsetup", "Preparar", "Prepara el golpe al Casino Diamond"};
+		static SetPotentialTake _DiamondCasinoHeistSetPotentialTake{"diamondcasinoheistsetpotentialtake", "Establecer ganancia potencial", "Actualiza la ganancia potencial"};
+		static SetActualTake _DiamondCasinoHeistSetActualTake{"diamondcasinoheistsetactualtake", "Establecer ganancia actual", "Actualiza la ganancia actual"};
+		static SkipHacking _DiamondCasinoHeistSkipHacking{"diamondcasinoheistskiphacking", "Omitir hackeo", "Omitir el proceso de hackeo"};
+		static SkipDrilling _DiamondCasinoHeistSkipDrilling{"diamondcasinoheistskipdrilling", "Omitir taladrado", "Omitir el proceso de taladrado"};
+		static SoloMantrap _DiamondCasinoHeistSoloMantrap{"diamondcasinoheistsolomantrap", "Pasillo solo", "Omitir el proceso de pasar tarjetas"};
+		static InstantFinish _DiamondCasinoHeistInstantFinish{"diamondcasinoheistinstantfinish", "Terminar al instante", "Aprueba el golpe al instante"};
 	}
 }

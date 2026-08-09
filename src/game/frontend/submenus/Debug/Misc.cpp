@@ -16,7 +16,7 @@ namespace YimMenu::Submenus
 		auto misc = std::make_unique<Category>("Misc");
 
 		misc->AddItem(std::make_unique<ImGuiItem>([] {
-			if (ImGui::Button("Network Bail"))
+			if (ImGui::Button("Salir de la red"))
 			{
 				FiberPool::Push([] {
 					NETWORK::NETWORK_BAIL(0, 24, 0);
@@ -48,7 +48,7 @@ namespace YimMenu::Submenus
 			}
 
 			static int team;
-			ImGui::InputInt("Team", &team);
+			ImGui::InputInt("Equipo", &team);
 			if (ImGui::Button("fm_mission_controller DoTeamSwap"))
 			{
 				FiberPool::Push([] {

@@ -20,5 +20,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static InfiniteSpecialAbility _InfiniteSpecialAbility{"infspecialability", "Infinite Special Ability", "Ensures that the special ability bar never runs out"};
+	static InfiniteSpecialAbility _InfiniteSpecialAbility{"infspecialability", "Habilidad especial infinita", "Asegura que la barra de habilidad especial nunca se vacíe"};
 }

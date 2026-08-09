@@ -13,5 +13,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static SkipCutscene _SkipCutscene{"skipcutscene", "Skip Cutscene", "Skips any currently playing cutscene"};
+	static SkipCutscene _SkipCutscene{"skipcutscene", "Omitir cinemática", "Omite cualquier cinemática que se esté reproduciendo"};
 }

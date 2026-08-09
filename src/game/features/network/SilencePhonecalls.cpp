@@ -27,5 +27,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static SilencePhonecalls _SilencePhonecalls{"nocalls", "Silence Phone Calls", "Automatically silences all incoming calls"};
+	static SilencePhonecalls _SilencePhonecalls{"nocalls", "Silenciar llamadas", "Silencia automáticamente todas las llamadas entrantes"};
 }

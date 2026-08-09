@@ -8,7 +8,7 @@ namespace YimMenu::Submenus
 {
 	std::shared_ptr<Category> BuildLuaScriptsMenu()
 	{
-		auto menu = std::make_shared<Category>("Lua Scripts");
+		auto menu = std::make_shared<Category>("Scripts Lua");
 
 		static std::shared_ptr<LuaScript> selectedScript;
 
@@ -67,12 +67,12 @@ namespace YimMenu::Submenus
 						selectedScript->Pause();
 				}
 				ImGui::SameLine();
-				if (ImGui::Button("Reload"))
+				if (ImGui::Button("Recargar"))
 				{
 					selectedScript->Reload();
 				}
 				ImGui::SameLine();
-				if (ImGui::Button("Unload"))
+				if (ImGui::Button("Descargar"))
 				{
 					selectedScript->Unload();
 				}

@@ -20,5 +20,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static InfiniteAmmo _InfiniteAmmo{"infiniteammo", "Infinite Ammo", "You will never run out of ammo"};
+	static InfiniteAmmo _InfiniteAmmo{"infiniteammo", "Munición infinita", "Nunca te queda sin munición"};
 }

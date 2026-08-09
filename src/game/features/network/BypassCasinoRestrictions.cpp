@@ -21,7 +21,7 @@ namespace YimMenu::Features
 		}
 	};
 
-	static BypassCasinoRestrictions _BypassCasinoRestrictions{"bypasscasinogeoblock", "Bypass Casino Restrictions", "Bypasses all casino region restrictions"}; // TODO: enable by default?
+	static BypassCasinoRestrictions _BypassCasinoRestrictions{"bypasscasinogeoblock", "Evitar restricciones del casino", "Evita todas las restricciones regionales del casino"}; // TODO: enable by default?
 
 	static void NetworkCasinoCanBetHook(rage::scrNativeCallContext* ctx)
 	{

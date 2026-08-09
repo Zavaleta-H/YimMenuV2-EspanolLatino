@@ -35,5 +35,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static ModifyRocketBoost _ModifyRocketBoost{"modifyboostbehavior", "Modify Boost Behavior", "Modify rocket boost behavior for vehicles that support it"};
+	static ModifyRocketBoost _ModifyRocketBoost{"modifyboostbehavior", "Modificar comportamiento de impulso", "Modifica el comportamiento del impulso de cohete para vehículos que lo soportan"};
 };

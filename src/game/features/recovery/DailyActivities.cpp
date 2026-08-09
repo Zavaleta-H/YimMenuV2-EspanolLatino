@@ -248,7 +248,7 @@ namespace YimMenu::Features
 				return;
 
 			SetAllDailyActivitiesCompleted(true);
-			Notifications::Show("Daily Activities", "Completed all activities, switch session to apply the changes.");
+			Notifications::Show("Actividades diarias", "Actividades completadas. Cambia de sesión para aplicar los cambios.");
 		}
 	};
 
@@ -262,7 +262,7 @@ namespace YimMenu::Features
 				return;
 
 			SetAllDailyActivitiesCompleted(false);
-			Notifications::Show("Daily Activities", "Reset all activities, switch session to apply the changes.");
+			Notifications::Show("Actividades diarias", "Actividades reiniciadas. Cambia de sesión para aplicar los cambios.");
 		}
 	};
 
@@ -300,7 +300,7 @@ namespace YimMenu::Features
 			}
 			else
 			{
-				Notifications::Show("Hidden Caches", "This Hidden Cache has already been collected.", NotificationType::Error);
+				Notifications::Show("Cachés ocultos", "Este Caché oculto ya fue recogido.", NotificationType::Error);
 			}
 		}
 	};
@@ -320,7 +320,7 @@ namespace YimMenu::Features
 			}
 			else
 			{
-				Notifications::Show("Hidden Caches", "This Hidden Cache has already been collected.", NotificationType::Error);
+				Notifications::Show("Cachés ocultos", "Este Caché oculto ya fue recogido.", NotificationType::Error);
 			}
 		}
 	};
@@ -340,7 +340,7 @@ namespace YimMenu::Features
 			}
 			else
 			{
-				Notifications::Show("Treasure Chests", "This Treasure Chest has already been collected.", NotificationType::Error);
+				Notifications::Show("Cofres de tesoro", "Este Cofre del tesoro ya fue recogido.", NotificationType::Error);
 			}
 		}
 	};
@@ -360,7 +360,7 @@ namespace YimMenu::Features
 			}
 			else
 			{
-				Notifications::Show("Treasure Chests", "This Treasure Chest has already been collected.", NotificationType::Error);
+				Notifications::Show("Cofres de tesoro", "Este Cofre del tesoro ya fue recogido.", NotificationType::Error);
 			}
 		}
 	};
@@ -404,7 +404,7 @@ namespace YimMenu::Features
 			}
 			else
 			{
-				Notifications::Show("Shipwreck", "Shipwreck has already been collected.", NotificationType::Error);
+				Notifications::Show("Naufragios", "Los naufragios ya fueron encontrados.", NotificationType::Error);
 			}
 		}
 	};
@@ -424,7 +424,7 @@ namespace YimMenu::Features
 			}
 			else
 			{
-				Notifications::Show("Shipwreck", "Shipwreck has already been collected.", NotificationType::Error);
+				Notifications::Show("Naufragios", "Los naufragios ya fueron encontrados.", NotificationType::Error);
 			}
 		}
 	};
@@ -444,7 +444,7 @@ namespace YimMenu::Features
 			}
 			else
 			{
-				Notifications::Show("Buried Stashes", "This Buried Stash has already been collected.", NotificationType::Error);
+				Notifications::Show("Alijos enterrados", "Este Alijo enterrado ya fue recogido.", NotificationType::Error);
 			}
 		}
 	};
@@ -464,7 +464,7 @@ namespace YimMenu::Features
 			}
 			else
 			{
-				Notifications::Show("Buried Stashes", "This Buried Stash has already been collected.", NotificationType::Error);
+				Notifications::Show("Alijos enterrados", "Este Alijo enterrado ya fue recogido.", NotificationType::Error);
 			}
 		}
 	};
@@ -567,7 +567,7 @@ namespace YimMenu::Features
 
 			if (stat.empty() || Stats::GetInt(stat) != -1)
 			{
-				Notifications::Show("Time Trials", "This Time Trial has already been beaten.", NotificationType::Error);
+				Notifications::Show("Contrarrelojes", "Esta Contrarreloj ya fue superada.", NotificationType::Error);
 				return;
 			}
 
@@ -589,7 +589,7 @@ namespace YimMenu::Features
 			}
 			else
 			{
-				Notifications::Show("Time Trials", "Please enable the blip from the Interaction Menu.", NotificationType::Error);
+				Notifications::Show("Contrarrelojes", "Actézalo desde el Menú de interacción.", NotificationType::Error);
 			}
 		}
 	};
@@ -613,7 +613,7 @@ namespace YimMenu::Features
 
 			if (stat.empty() || Stats::GetInt(stat) != -1)
 			{
-				Notifications::Show("Time Trials", "This Time Trial has already been beaten.", NotificationType::Error);
+				Notifications::Show("Contrarrelojes", "Esta Contrarreloj ya fue superada.", NotificationType::Error);
 				return;
 			}
 
@@ -678,7 +678,7 @@ namespace YimMenu::Features
 
 			if (GPBD_Flow::Get()->Entries[Self::GetPlayer().GetId()].TunerCBVDeliveredFlags.Value == 1023)
 			{
-				Notifications::Show("Exotic Exports", "You have already delivered all the vehicles.", NotificationType::Error);
+				Notifications::Show("Exportaciones exóticas", "Ya entregaste todos los vehículos.", NotificationType::Error);
 				return;
 			}
 
@@ -701,13 +701,13 @@ namespace YimMenu::Features
 
 			if (GPBD_Flow::Get()->Entries[Self::GetPlayer().GetId()].TunerCBVDeliveredFlags.Value == 1023)
 			{
-				Notifications::Show("Exotic Exports", "You have already delivered all the vehicles.", NotificationType::Error);
+				Notifications::Show("Exportaciones exóticas", "Ya entregaste todos los vehículos.", NotificationType::Error);
 				return;
 			}
 
 			/*if (!FreemodeDelivery::Get()->DeliveryCooldown1.HasTimePassed(30000))
 			{
-				Notifications::Show("Exotic Exports", "You have just delivered a vehicle, wait a moment.", NotificationType::Error);
+				Notifications::Show("Exportaciones exóticas", "Acabaste de entregar un vehículo, espera un momento.", NotificationType::Error);
 				return;
 			}*/
 
@@ -733,7 +733,7 @@ namespace YimMenu::Features
 			}
 			else
 			{
-				Notifications::Show("G's Cache", "G's Cache has already been collected.", NotificationType::Error);
+				Notifications::Show("Caché de G", "El caché de G ya fue recolectado.", NotificationType::Error);
 			}
 		}
 	};
@@ -753,7 +753,7 @@ namespace YimMenu::Features
 			}
 			else
 			{
-				Notifications::Show("G's Cache", "G's Cache has already been collected.", NotificationType::Error);
+				Notifications::Show("Caché de G", "El caché de G ya fue recolectado.", NotificationType::Error);
 			}
 		}
 	};
@@ -778,7 +778,7 @@ namespace YimMenu::Features
 			}
 			else
 			{
-				Notifications::Show("Stash House", "Stash House has already been raided.", NotificationType::Error);
+				Notifications::Show("Guarida", "La Guarida ya fue asaltada.", NotificationType::Error);
 			}
 		}
 	};
@@ -848,7 +848,7 @@ namespace YimMenu::Features
 			}
 			else
 			{
-				Notifications::Show("LS Tags", "This LS Tag has already been sprayed.", NotificationType::Error);
+				Notifications::Show("Tags de LS", "Esta Tag de LS ya fue pintada.", NotificationType::Error);
 			}
 		}
 	};
@@ -868,7 +868,7 @@ namespace YimMenu::Features
 			}
 			else
 			{
-				Notifications::Show("LS Tags", "This LS Tag has already been sprayed.", NotificationType::Error);
+				Notifications::Show("Tags de LS", "Esta Tag de LS ya fue pintada.", NotificationType::Error);
 			}
 		}
 	};
@@ -884,7 +884,7 @@ namespace YimMenu::Features
 
 			if (Stats::GetInt("MPX_BAIL_OFFICE_OWNED") == 0)
 			{
-				Notifications::Show("Madrazo Hits", "You must own a Bail Office.", NotificationType::Error);
+				Notifications::Show("Encarúdegos Madrazo", "Debes ser dueño de una Oficina de fianzas.", NotificationType::Error);
 				return;
 			}
 
@@ -899,7 +899,7 @@ namespace YimMenu::Features
 			}
 			else
 			{
-				Notifications::Show("Madrazo Hits", "Madrazo Hit has already been completed.", NotificationType::Error);
+				Notifications::Show("Encarúdegos Madrazo", "El encargo de Madrazo ya fue completado.", NotificationType::Error);
 			}
 		}
 	};
@@ -942,7 +942,7 @@ namespace YimMenu::Features
 			}
 			else
 			{
-				Notifications::Show("Shoot Animals Photography", "This animal has already been photographed.", NotificationType::Error);
+				Notifications::Show("Fotografía de animales", "Este animal ya fue fotografiado.", NotificationType::Error);
 			}
 		}
 	};
@@ -968,7 +968,7 @@ namespace YimMenu::Features
 			}
 			else
 			{
-				Notifications::Show("Shoot Animals Photography", "This animal has already been photographed.", NotificationType::Error);
+				Notifications::Show("Fotografía de animales", "Este animal ya fue fotografiado.", NotificationType::Error);
 			}
 		}
 	};
@@ -984,7 +984,7 @@ namespace YimMenu::Features
 
 			if (Stats::GetInt("MPX_SB_WEED_SHOP_OWNED") == 0)
 			{
-				Notifications::Show("Smoke on the Water", "You must own a Smoke on the Water property.", NotificationType::Error);
+				Notifications::Show("Smoke on the Water", "Debes ser dueño de la propiedad Smoke on the Water.", NotificationType::Error);
 				return;
 			}
 
@@ -994,7 +994,7 @@ namespace YimMenu::Features
 			}
 			else
 			{
-				Notifications::Show("Smoke on the Water", "This product has already been collected.", NotificationType::Error);
+				Notifications::Show("Smoke on the Water", "Este producto ya fue recogido.", NotificationType::Error);
 			}
 		}
 	};
@@ -1010,7 +1010,7 @@ namespace YimMenu::Features
 
 			if (Stats::GetInt("MPX_SB_WEED_SHOP_OWNED") == 0)
 			{
-				Notifications::Show("Smoke on the Water", "You must own a Smoke on the Water property.", NotificationType::Error);
+				Notifications::Show("Smoke on the Water", "Debes ser dueño de la propiedad Smoke on the Water.", NotificationType::Error);
 				return;
 			}
 
@@ -1020,7 +1020,7 @@ namespace YimMenu::Features
 			}
 			else
 			{
-				Notifications::Show("Smoke on the Water", "This product has already been collected.", NotificationType::Error);
+				Notifications::Show("Smoke on the Water", "Este producto ya fue recogido.", NotificationType::Error);
 			}
 		}
 	};
@@ -1040,7 +1040,7 @@ namespace YimMenu::Features
 			}
 			else
 			{
-				Notifications::Show("Golden Clover", "Golden Clover has already been collected.", NotificationType::Error);
+				Notifications::Show("Trébol Dorado", "El Trébol Dorado ya fue recolectado.", NotificationType::Error);
 			}
 		}
 	};
@@ -1060,60 +1060,60 @@ namespace YimMenu::Features
 			}
 			else
 			{
-				Notifications::Show("Golden Clover", "Golden Clover has already been collected.", NotificationType::Error);
+				Notifications::Show("Trébol Dorado", "El Trébol Dorado ya fue recolectado.", NotificationType::Error);
 			}
 		}
 	};
 
-	static SetAllActivitiesCompleted _SetAllActivitiesCompleted{"setallactivitiescompleted", "Set All Activities Completed", "Switch session to apply the changes."};
-	static ResetAllActivities _ResetAllActivities{"resetallactivities", "Reset All Activities", "Switch session to apply the changes."};
+	static SetAllActivitiesCompleted _SetAllActivitiesCompleted{"setallactivitiescompleted", "Completar todas las actividades", "Cambia de sesión para aplicar los cambios"};
+	static ResetAllActivities _ResetAllActivities{"resetallactivities", "Restablecer todas las actividades", "Cambia de sesión para aplicar los cambios"};
 
-	static CompleteAllChallenges _CompleteAllChallenges{"completeallchallenges", "Complete All Challenges", "Completes all the Daily Objectives and the Weekly Challenge."};
+	static CompleteAllChallenges _CompleteAllChallenges{"completeallchallenges", "Completar todos los desafíos", "Completa todos los objetivos diarios y el desafío semanal"};
 
-	static TeleportToHiddenCache _TeleportToHiddenCache{"tptohiddencache", "Teleport to Hidden Cache", "Teleports to the selected Hidden Cache."};
-	static CollectHiddenCache _CollectHiddenCache{"collecthiddencache", "Collect Hidden Cache", "Collects the selected Hidden Cache."};
+	static TeleportToHiddenCache _TeleportToHiddenCache{"tptohiddencache", "Teletransportar al escondite oculto", "Teletransporta al escondite oculto seleccionado"};
+	static CollectHiddenCache _CollectHiddenCache{"collecthiddencache", "Recolectar escondite oculto", "Recolecta el escondite oculto seleccionado"};
 
-	static TeleportToTreasureChest _TeleportToTreasureChest{"tptotreasurechest", "Teleport to Treasure Chest", "Teleports to the selected Treasure Chest."};
-	static CollectTreasureChest _CollectTreasureChest{"collecttreasurechest", "Collect Treasure Chest", "Collects the selected Treasure Chest."};
-	static EnableTreasureChestInLS _EnableTreasureChestInLS{"enabletreasurechestinls", "Enable Treasure Chests in LS", "Enables Treasure Chests in Los Santos, so you don't have to go to Cayo Perico."};
+	static TeleportToTreasureChest _TeleportToTreasureChest{"tptotreasurechest", "Teletransportar al cofre del tesoro", "Teletransporta al cofre del tesoro seleccionado"};
+	static CollectTreasureChest _CollectTreasureChest{"collecttreasurechest", "Recolectar cofre del tesoro", "Recolecta el cofre del tesoro seleccionado"};
+	static EnableTreasureChestInLS _EnableTreasureChestInLS{"enabletreasurechestinls", "Activar cofres del tesoro en LS", "Activa los cofres del tesoro en Los Santos para no ir a Cayo Perico"};
 
-	static TeleportToShipwrecked _TeleportToShipwrecked{"tptoshipwrecked", "Teleport to Shipwreck", "Teleports to Shipwreck."};
-	static CollectShipwrecked _CollectShipwrecked{"collectshipwrecked", "Collect Shipwreck", "Collects Shipwreck."};
+	static TeleportToShipwrecked _TeleportToShipwrecked{"tptoshipwrecked", "Teletransportar al naufragio", "Teletransporta al naufragio"};
+	static CollectShipwrecked _CollectShipwrecked{"collectshipwrecked", "Recoger naufragio", "Recoge el naufragio"};
 
-	static TeleportToBuriedStash _TeleportToBuriedStash{"tptoburiedstash", "Teleport to Buried Stash", "Teleports to the selected Buried Stash."};
-	static CollectBuriedStash _CollectBuriedStash{"collectburiedstash", "Collect Buried Stash", "Collects the selected Buried Stash."};
-	static EnableBuriedStashInLS _EnableBuriedStashInLS{"enableburiedstashinls", "Enable Buried Stashes in LS", "Enables Buried Stashes in Los Santos, so you don't have to go to Cayo Perico."};
+	static TeleportToBuriedStash _TeleportToBuriedStash{"tptoburiedstash", "Teletransportar al alijo enterrado", "Teletransporta al alijo enterrado seleccionado"};
+	static CollectBuriedStash _CollectBuriedStash{"collectburiedstash", "Recoger alijo enterrado", "Recoge el alijo enterrado seleccionado"};
+	static EnableBuriedStashInLS _EnableBuriedStashInLS{"enableburiedstashinls", "Activar alijos enterrados en LS", "Activa los alijos enterrados en Los Santos para no tener que ir a Cayo Perico"};
 
-	static TeleportToSkydive _TeleportToSkydive{"tptoskydive", "Teleport to Skydive", "Teleports to the selected Skydive."};
-	static CompleteSkydive _CompleteSkydive{"completeskydive", "Complete Skydive", "Completes the selected Skydive."};
+	static TeleportToSkydive _TeleportToSkydive{"tptoskydive", "Teletransportar a caída libre", "Teletransporta a la zona de salto seleccionada"};
+	static CompleteSkydive _CompleteSkydive{"completeskydive", "Completar caída libre", "Completa el salto seleccionado"};
 
-	static TeleportToTimeTrial _TeleportToTimeTrial{"tptotimetrial", "Teleport to Time Trial", "Teleports to the selected Time Trial."};
-	static BeatTimeTrial _BeatTimeTrial{"beattimetrial", "Beat Time Trial", "Completes the selected Time Trial."};
+	static TeleportToTimeTrial _TeleportToTimeTrial{"tptotimetrial", "Teletransportar a contrarreloj", "Teletransporta a la contrarreloj seleccionada"};
+	static BeatTimeTrial _BeatTimeTrial{"beattimetrial", "Completar contrarreloj", "Completa la contrarreloj seleccionada"};
 
-	static TeleportToExoticExportsVehicle _TeleportToExoticExportsVehicle{"tptoexoticexportsvehicle", "Teleport to Exotic Exports Vehicle", "Teleports to the next Exotic Exports vehicle."};
-	static DeliverNextExoticExportsVehicle _DeliverNextExoticExportsVehicle{"delivernextexoticexportsvehicle", "Deliver Next Exotic Exports Vehicle", "Directly delivers the next Exotic Exports vehicle."};
+	static TeleportToExoticExportsVehicle _TeleportToExoticExportsVehicle{"tptoexoticexportsvehicle", "Teletransportar al vehículo de exportaciones", "Teletransporta al próximo vehículo de Exportaciones Exoticas"};
+	static DeliverNextExoticExportsVehicle _DeliverNextExoticExportsVehicle{"delivernextexoticexportsvehicle", "Entregar próximo vehículo de exportaciones", "Entrega directamente el próximo vehículo de Exportaciones Exoticas"};
 
-	static TeleportToDeadDrop _TeleportToDeadDrop{"tptodeaddrop", "Teleport to G's Cache", "Teleports to G's Cache."};
-	static CollectDeadDrop _CollectDeadDrop{"collectdeaddrop", "Collect G's Cache", "Collects G's Cache."};
+	static TeleportToDeadDrop _TeleportToDeadDrop{"tptodeaddrop", "Teletransportar al escondite de G", "Teletransporta al escondite de G"};
+	static CollectDeadDrop _CollectDeadDrop{"collectdeaddrop", "Recoger escondite de G", "Recoge el escondite de G"};
 
-	static TeleportToStashHouse _TeleportToStashHouse{"tptostashhouse", "Teleport to Stash House", "Teleports to Stash House."};
-	static EnterStashHouseSafeCode _EnterStashHouseSafeCode{"enterstashhousesafecode", "Enter Stash House Safe Code", "Enters the Stash House safe code."};
+	static TeleportToStashHouse _TeleportToStashHouse{"tptostashhouse", "Teletransportar a la casa de escondite", "Teletransporta a la Casa Alijo"};
+	static EnterStashHouseSafeCode _EnterStashHouseSafeCode{"enterstashhousesafecode", "Ingresar clave de casa alijo", "Ingresa automáticamente el código de la Caja Fuerte de la casa alijo"};
 
-	static TeleportToStreetDealer _TeleportToStreetDealer{"tptostreetdealer", "Teleport to Dealer", "Teleports to the selected Street Dealer."};
-	static _OpenStreetDealerMenu __OpenStreetDealerMenu{"openstreetdealermenu", "Open Street Dealer Menu", "Allows you to access the selected Street Dealer remotely."};
+	static TeleportToStreetDealer _TeleportToStreetDealer{"tptostreetdealer", "Teletransportar al dealer", "Teletransporta al dealer callejero seleccionado"};
+	static _OpenStreetDealerMenu __OpenStreetDealerMenu{"openstreetdealermenu", "Abrir menú del dealer callejero", "Te permite acceder al dealer callejero de forma remota"};
 
-	static TeleportToLSTag _TeleportToLSTag{"tptolstag", "Teleport to LS Tag", "Teleports to the selected LS Tag."};
-	static SprayLSTag _SprayLSTag{"spraylstag", "Spray LS Tag", "Sprays the selected LS Tag."};
+	static TeleportToLSTag _TeleportToLSTag{"tptolstag", "Teletransportar a etiqueta LS", "Teletransporta a la etiqueta LS seleccionada"};
+	static SprayLSTag _SprayLSTag{"spraylstag", "Pintar etiqueta LS", "Pinta con spray la etiqueta LS seleccionada"};
 
-	static TeleportToMadrazoHit _TeleportToMadrazoHit{"tptomadrazohit", "Teleport to Madrazo Hit", "Teleports to Madrazo Hit."};
-	static TeleportToMadrazoHitTarget _TeleportToMadrazoHitTarget{"tptomadrazohittarget", "Teleport to Madrazo Hit Target", "Teleports to Madrazo Hit Target."};
+	static TeleportToMadrazoHit _TeleportToMadrazoHit{"tptomadrazohit", "Teletransportar al golpe de Madrazo", "Teletransporta al encargo de Madrazo"};
+	static TeleportToMadrazoHitTarget _TeleportToMadrazoHitTarget{"tptomadrazohittarget", "Teletransportar al objetivo de Madrazo", "Teletransporta al objetivo del encargo de Madrazo"};
 
-	static SpawnAnimal _SpawnAnimal{"spawnanimal", "Spawn Animal", "Spawns the selected animal."};
-	static PhotographAnimal _PhotographAnimal{"photographanimal", "Photograph Animal", "Photographs the selected animal."};
+	static SpawnAnimal _SpawnAnimal{"spawnanimal", "Generar animal", "Genera el animal seleccionado"};
+	static PhotographAnimal _PhotographAnimal{"photographanimal", "Fotografiar animal", "Fotografía del animal seleccionado"};
 
-	static TeleportToProduct _TeleportToProduct{"tptoproduct", "Teleport to Product", "Teleports to the selected product."};
-	static CollectProduct _CollectProduct{"collectproduct", "Collect Product", "Collects the selected product."};
+	static TeleportToProduct _TeleportToProduct{"tptoproduct", "Teletransportar al producto", "Teletransporta al producto seleccionado"};
+	static CollectProduct _CollectProduct{"collectproduct", "Recoger producto", "Recoge el producto seleccionado"};
 
-	static TeleportToGoldenClover _TeleportToGoldenClover{"tptogoldenclover", "Teleport to Golden Clover", "Teleports to the Golden Clover."};
-	static CollectGoldenClover _CollectGoldenClover{"collectgoldenclover", "Collect Golden Clover", "Collects the Golden Clover."};
+	static TeleportToGoldenClover _TeleportToGoldenClover{"tptogoldenclover", "Teletransportar al Trébol Dorado", "Teletransporta al Trébol Dorado"};
+	static CollectGoldenClover _CollectGoldenClover{"collectgoldenclover", "Recoger Trébol Dorado", "Recoge el Trébol Dorado"};
 }

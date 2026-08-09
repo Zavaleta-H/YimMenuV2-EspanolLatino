@@ -6,10 +6,10 @@ namespace YimMenu::Submenus
 	{
 		auto tab = std::make_shared<TabItem>("Diamond Casino Heist");
 
-		auto cuts = std::make_shared<Group>("Heist Cuts", 2);
-		auto setups = std::make_shared<Group>("Heist Setups");
-		auto loots = std::make_shared<Group>("Loots", 2);
-		auto misc = std::make_shared<Group>("Misc", 1);
+		auto cuts = std::make_shared<Group>("Reparto del golpe", 2);
+		auto setups = std::make_shared<Group>("Preparaciones");
+		auto loots = std::make_shared<Group>("Botín", 2);
+		auto misc = std::make_shared<Group>("Otros", 1);
 
 		cuts->AddItem(std::make_shared<IntCommandItem>("diamondcasinoheistcut1"_J));
 		cuts->AddItem(std::make_shared<IntCommandItem>("diamondcasinoheistcut3"_J));
@@ -33,8 +33,8 @@ namespace YimMenu::Submenus
 
 		loots->AddItem(std::make_shared<IntCommandItem>("diamondcasinoheistpotentialtake"_J));
 		loots->AddItem(std::make_shared<IntCommandItem>("diamondcasinoheistactualtake"_J));
-		loots->AddItem(std::make_shared<CommandItem>("diamondcasinoheistsetpotentialtake"_J, "Set##potentialtake"));
-		loots->AddItem(std::make_shared<CommandItem>("diamondcasinoheistsetactualtake"_J, "Set##actualtake"));
+		loots->AddItem(std::make_shared<CommandItem>("diamondcasinoheistsetpotentialtake"_J, "Establecer##potentialtake"));
+		loots->AddItem(std::make_shared<CommandItem>("diamondcasinoheistsetactualtake"_J, "Establecer##actualtake"));
 
 		misc->AddItem(std::make_shared<CommandItem>("diamondcasinoheistskiphacking"_J));
 		misc->AddItem(std::make_shared<CommandItem>("diamondcasinoheistskipdrilling"_J));

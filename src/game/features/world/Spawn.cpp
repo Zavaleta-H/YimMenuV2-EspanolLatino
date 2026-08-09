@@ -6,8 +6,8 @@
 
 namespace YimMenu::Features
 {
-	static StringCommand _PedModelName{"pedmodelname", "Ped Model", "The model name of the ped you wish to spawn."};
-	static StringCommand _ObjectModelName{"objectmodelname", "Object Model", "The model name of the object you wish to spawn."};
+	static StringCommand _PedModelName{"pedmodelname", "Modelo del ped", "El nombre del modelo del ped que deseas generar."};
+	static StringCommand _ObjectModelName{"objectmodelname", "Modelo del objeto", "El nombre del modelo del objeto que deseas generar."};
 
 
 	class SpawnPed : public Command
@@ -19,7 +19,7 @@ namespace YimMenu::Features
 			auto model = _PedModelName.GetString();
 			if (!model.length())
 			{
-				Notifications::Show("Spawn Ped", "No model name provided.", NotificationType::Error);
+				Notifications::Show("Generar ped", "No se proporcionó un nombre de modelo.", NotificationType::Error);
 				return;
 			}
 
@@ -30,7 +30,7 @@ namespace YimMenu::Features
 			}
 			else
 			{
-				Notifications::Show("Spawn Ped", "Invalid model name provided.", NotificationType::Error);
+				Notifications::Show("Generar ped", "Nombre de modelo no válido.", NotificationType::Error);
 			}
 		}
 	};
@@ -44,7 +44,7 @@ namespace YimMenu::Features
 			auto model = _ObjectModelName.GetString();
 			if (!model.length())
 			{
-				Notifications::Show("Spawn Object", "No model name provided.", NotificationType::Error);
+				Notifications::Show("Generar objeto", "No se proporcionó un nombre de modelo.", NotificationType::Error);
 				return;
 			}
 
@@ -55,11 +55,11 @@ namespace YimMenu::Features
 			}
 			else
 			{
-				Notifications::Show("Spawn Object", "Invalid model name provided.", NotificationType::Error);
+				Notifications::Show("Generar objeto", "Nombre de modelo no válido.", NotificationType::Error);
 			}
 		}
 	};
 
-	static SpawnPed _SpawnPed{"spawnped", "Spawn Ped", "Spawns a ped at your current location."};
-	static SpawnObject _SpawnObject{"spawnobject", "Spawn Object", "Spawns an object at your current location."};
+	static SpawnPed _SpawnPed{"spawnped", "Generar PNJ", "Genera un PNJ en tu ubicación actual"};
+	static SpawnObject _SpawnObject{"spawnobject", "Generar objeto", "Genera un objeto en tu ubicación actual"};
 }

@@ -28,7 +28,7 @@ namespace YimMenu::Features
 			Network::LaunchJoinType(static_cast<Network::JoinType>(_JoinType.GetState()));
 		}
 	};
-	static JoinSession _JoinSession{"joinsession", "Join Session", "Joins the specified session type"};
+	static JoinSession _JoinSession{"joinsession", "Unirse a sesión", "Te une al tipo de sesión especificado"};
 
 
 }

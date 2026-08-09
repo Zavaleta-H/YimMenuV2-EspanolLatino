@@ -10,17 +10,17 @@
 
 namespace YimMenu::Submenus
 {
-	static BoolCommand spawnInsideVehicle{"spawninsideveh", "Spawn Inside", "Spawn inside the vehicle."};
-	static BoolCommand spawnVehicleMaxed{"spawnvehmaxed", "Spawn Maxed", "Spawn the vehicle maxed."};
-	static BoolCommand spawnInsidePersonalVehicle{"spawninsidepv", "Spawn Inside", "Spawn inside the personal vehicle."};
-	static BoolCommand spawnClonePersonalVehicle{"spawnclonepv", "Spawn Clone", "Spawn a clone of the persone vehicle."};
+	static BoolCommand spawnInsideVehicle{"spawninsideveh", "Generar dentro", "Generar dentro del vehículo."};
+	static BoolCommand spawnVehicleMaxed{"spawnvehmaxed", "Aparecer maxeado", "Aparece el vehiculo con las mejoras maximas"};
+	static BoolCommand spawnInsidePersonalVehicle{"spawninsidepv", "Generar dentro", "Generar dentro del vehículo personal."};
+	static BoolCommand spawnClonePersonalVehicle{"spawnclonepv", "Generar clon", "Genera un clon del vehículo personal."};
 
 	std::shared_ptr<TabItem> RenderSpawnNewVehicle()
 	{
 		auto tab = std::make_shared<TabItem>("New Vehicle");
 
-		auto spawn = std::make_shared<Group>("Spawn");
-		auto settings = std::make_shared<Group>("Settings");
+		auto spawn = std::make_shared<Group>("Generar");
+		auto settings = std::make_shared<Group>("Ajustes");
 
 		static std::vector<std::string> vehicleNames{};
 		static std::vector<int> vehicleClasses{};
@@ -67,7 +67,7 @@ namespace YimMenu::Submenus
 			ImGui::SetNextItemWidth(300.f);
 			if (ImGui::BeginCombo("Class", selectedClass == -1 ? "All" : g_VehicleClassNames[selectedClass]))
 			{
-				if (ImGui::Selectable("All", selectedClass == -1))
+				if (ImGui::Selectable("Todos", selectedClass == -1))
 				{
 					selectedClass = -1;
 				}
@@ -89,7 +89,7 @@ namespace YimMenu::Submenus
 			{
 				if (vehicleNames.empty())
 				{
-					ImGui::Text("Natives not cached yet.");
+					ImGui::Text("Natives no cacheados aún.");
 				}
 				else
 				{
@@ -140,14 +140,14 @@ namespace YimMenu::Submenus
 	{
 		auto tab = std::make_shared<TabItem>("Personal Vehicle");
 
-		auto spawn = std::make_shared<Group>("Spawn");
-		auto settings = std::make_shared<Group>("Settings");
+		auto spawn = std::make_shared<Group>("Generar");
+		auto settings = std::make_shared<Group>("Ajustes");
 
 		static std::string selectedGarageStr{""};
 
 		spawn->AddItem(std::make_unique<ImGuiItem>([] {
 			if (!*Pointers.IsSessionStarted)
-				return ImGui::TextDisabled("Join GTA Online.");
+				return ImGui::TextDisabled("Únete a GTA Online.");
 
 			PersonalVehicles::Update();
 
@@ -158,7 +158,7 @@ namespace YimMenu::Submenus
 			ImGui::SetNextItemWidth(300.f);
 			if (ImGui::BeginCombo("Garage", selectedGarageStr.empty() ? "All" : selectedGarageStr.c_str()))
 			{
-				if (ImGui::Selectable("All", selectedGarageStr.empty()))
+				if (ImGui::Selectable("Todos", selectedGarageStr.empty()))
 				{
 					selectedGarageStr.clear();
 				}
@@ -179,7 +179,7 @@ namespace YimMenu::Submenus
 			{
 				if (PersonalVehicles::GetPersonalVehicles().empty())
 				{
-					ImGui::Text("Stats not loaded yet.");
+					ImGui::Text("Estadísticas no cargadas aún.");
 				}
 				else
 				{
@@ -213,7 +213,7 @@ namespace YimMenu::Submenus
 									else
 									{
 										if (!personalVeh->Request(spawnInsidePersonalVehicle.GetState()))
-											Notifications::Show("Spawn Personal Vehicle", "Failed to spawn Personal Vehicle.", NotificationType::Error);
+											Notifications::Show("Generar vehículo personal", "No se pudo generar el vehículo personal.", NotificationType::Error);
 									}
 								});
 							}
@@ -237,7 +237,7 @@ namespace YimMenu::Submenus
 
 	std::shared_ptr<Category> BuildSpawnVehicleMenu()
 	{
-		auto menu = std::make_shared<Category>("Spawn");
+		auto menu = std::make_shared<Category>("Generar");
 
 		auto tabBar = std::make_shared<TabBarItem>("Spawn");
 

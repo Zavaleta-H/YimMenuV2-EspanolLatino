@@ -39,6 +39,6 @@ namespace YimMenu::Features
 		}
 	};
 
-	static SetNetworkTime _SetTime{"setnetworktime", "Set Time", "Sets the current online time"};
-	static FreezeNetworkTime _FreezeTime{"freezenetworktime", "Freeze Time", "Freezes the online clock at the selected time"};
+	static SetNetworkTime _SetTime{"setnetworktime", "Establecer hora", "Establece la hora de en línea a la hora actual del juego"};
+	static FreezeNetworkTime _FreezeTime{"freezenetworktime", "Congelar hora", "Congela el reloj de línea a la hora seleccionada"};
 }

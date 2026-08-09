@@ -101,7 +101,7 @@ namespace YimMenu::Submenus
 		}
 		if (ImGui::BeginPopup("##weaponspopup", ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove))
 		{
-			ImGui::Text("Search:");
+			ImGui::Text("Buscar:");
 			ImGui::SameLine();
 			ImGui::SetNextItemWidth(250.f);
 			ImGui::InputText("##searchweapon", searchWeapon, sizeof(searchWeapon));
@@ -141,14 +141,14 @@ namespace YimMenu::Submenus
 			ImGui::EndPopup();
 		}
 
-		if (ImGui::Button("Give Weapon"))
+		if (ImGui::Button("Dar arma"))
 		{
 			FiberPool::Push([] {
 				Self::GetPed().GiveWeapon(selectedWeaponHash, true);
 			});
 		}
 		ImGui::SameLine();
-		if (ImGui::Button("Remove Weapon"))
+		if (ImGui::Button("Quitar arma"))
 		{
 			FiberPool::Push([] {
 				Self::GetPed().RemoveWeapon(selectedWeaponHash);
@@ -157,17 +157,17 @@ namespace YimMenu::Submenus
 
 		if (*Pointers.IsSessionStarted && selectedWeaponHash != 0)
 		{
-			ImGui::Text("Kills With: %d", kills);
-			ImGui::Text("Deaths By: %d", deaths);
+			ImGui::Text("Muertes con: %d", kills);
+			ImGui::Text("Muertes por: %d", deaths);
 			ImGui::Text("K/D Ratio: %.2f", kdRatio);
-			ImGui::Text("Headshots: %d", headshots);
-			ImGui::Text("Accuracy: %d%%", accuracy);
+			ImGui::Text("Disparos a la cabeza: %d", headshots);
+			ImGui::Text("Precisión: %d%%", accuracy);
 		}
 	}
 
 	static std::shared_ptr<Group> RenderCustomWeaponsMenu()
 	{
-		auto customWeaponsGroup = std::make_shared<Group>("Custom Weapons");
+		auto customWeaponsGroup = std::make_shared<Group>("Armas personalizadas");
 
 		auto cutomWeaponTypes = std::make_shared<Group>("", 1);
 		auto customWeapons = std::make_shared<Group>("");
@@ -208,10 +208,10 @@ namespace YimMenu::Submenus
 
 	std::shared_ptr<Category> BuildWeaponsMenu()
 	{
-		auto weapons = std::make_shared<Category>("Weapons");
+		auto weapons = std::make_shared<Category>("Armas");
 
-		auto weaponsGlobalsGroup = std::make_shared<Group>("Globals", 12);
-		auto weaponsToolsGroup = std::make_shared<Group>("Tools", 1);
+		auto weaponsGlobalsGroup = std::make_shared<Group>("Globales", 12);
+		auto weaponsToolsGroup = std::make_shared<Group>("Herramientas", 1);
 		auto weaponsAmmuNationGroup = std::make_shared<Group>("Ammu-Nation");
 		auto weaponsAimbotGroup = std::make_shared<Group>("Aimbot", 1);
 

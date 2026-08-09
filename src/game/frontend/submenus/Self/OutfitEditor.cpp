@@ -125,7 +125,7 @@ namespace YimMenu
 				ImGui::SetNextItemWidth(300.f);
 				if (ImGui::BeginCombo("", folder.empty() ? "Root" : folder.c_str()))
 				{
-					if (ImGui::Selectable("Root", folder == ""))
+					if (ImGui::Selectable("Raíz", folder == ""))
 					{
 						folder.clear();
 						FiberPool::Push([this] {
@@ -171,14 +171,14 @@ namespace YimMenu
 
 		void RenderSaveButton(bool saveToNewFolder)
 		{
-			if (ImGui::Button("Save Outfit"))
+			if (ImGui::Button("Guardar atuendo"))
 				FiberPool::Push([saveToNewFolder, this] {
 					std::string fileName = TrimString(outfitName);
 					strcpy(outfitName, "");
 
 					if (!fileName.size())
 					{
-						Notifications::Show("Outfit", "Filename empty!", NotificationType::Warning);
+						Notifications::Show("Atuendo", "¡Nombre de archivo vacío!", NotificationType::Warning);
 						return;
 					}
 
@@ -198,15 +198,15 @@ namespace YimMenu
 		{
 			ImGui::BeginGroup();
 			{
-				if (ImGui::Button("Refresh list"))
+				if (ImGui::Button("Actualizar lista"))
 					FiberPool::Push([this] {
 						Outfit::OutfitEditor::RefreshList(folder, folders, files);
 					});
 				ImGui::Spacing();
 				static bool applyHair = false;
-				ImGui::Checkbox("Apply hair", &applyHair);
+				ImGui::Checkbox("Aplicar peinado", &applyHair);
 				ImGui::Spacing();
-				if (ImGui::Button("Apply Selected Outfit"))
+				if (ImGui::Button("Aplicar atuendo seleccionado"))
 					FiberPool::Push([this] {
 						Outfit::OutfitEditor::ApplyOutfitFromJson(folder, file, applyHair);
 						applyHair = false; // reset everytime
@@ -216,14 +216,14 @@ namespace YimMenu
 				ImGui::Spacing();
 
 				// save outfit
-				ImGui::Text("Outfit Name");
+				ImGui::Text("Nombre del atuendo");
 				ImGui::SameLine();
 				ImGui::SetNextItemWidth(250);
 				ImGui::InputText("##filename", outfitName, IM_ARRAYSIZE(outfitName));
 
 				if (folder.empty())
 				{
-					ImGui::Text("Folder Name");
+					ImGui::Text("Nombre de la carpeta");
 					ImGui::SameLine();
 					ImGui::SetNextItemWidth(250);
 					ImGui::InputText("##foldername", newFolder, IM_ARRAYSIZE(newFolder));
@@ -239,15 +239,15 @@ namespace YimMenu
 	std::shared_ptr<Category> CreateOutfitsMenu()
 	{
 		static OutfitEditorMenu editor{};
-		auto category = std::make_shared<Category>("Outfit Editor");
+		auto category = std::make_shared<Category>("Editor de atuendos");
 
 		category->AddItem(std::make_shared<ImGuiItem>([] {
-			if (ImGui::Button("Refresh Stats"))
+			if (ImGui::Button("Actualizar estadísticas"))
 				FiberPool::Push([] {
 					editor.RefreshStats();
 				});
 			ImGui::SameLine();
-			if (ImGui::Button("Randomize Outfit"))
+			if (ImGui::Button("Atuendo aleatorio"))
 				FiberPool::Push([] {
 					Self::GetPed().RandomizeOutfit2();
 				});

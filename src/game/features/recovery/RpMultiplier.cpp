@@ -31,5 +31,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static OverrideRPMultiplier _OverrideRPMultiplier{"overriderpmultiplier", "Override RP Multiplier", "Multiplies RP by the given value"};
+	static OverrideRPMultiplier _OverrideRPMultiplier{"overriderpmultiplier", "Reemplazar multiplicador de RP", "Multiplica el RP por el valor indicado"};
 }

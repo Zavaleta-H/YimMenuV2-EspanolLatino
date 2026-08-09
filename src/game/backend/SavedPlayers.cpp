@@ -18,9 +18,9 @@ namespace YimMenu::Features
 	static BoolCommand _NotifyWhenUnjoinable{"playerdbnotifywhenunjoinable", "Notify When Unjoinable", "Notifies you when a tracked player becomes unjoinable", true};
 	static BoolCommand _NotifyWhenOnline{"playerdbnotifywhenonline", "Notify When Online", "Notifies you when a tracked player goes online", true};
 	static BoolCommand _NotifyWhenOffline{"playerdbnotifywhenoffline", "Notify When Offline", "Notifies you when a tracked player goes offline", true};
-	static BoolCommand _NotifyOnSessionTypeChange{"playerdbnotifyonseschange", "Notify On Session Type Change", "Notifies you when a tracked player's session type changes"};
-	static BoolCommand _NotifyOnMissionChange{"playerdbnotifyonmischange", "Notify On Mission Change", "Notifies you when a tracked player joins or leaves a mission"};
-	static BoolCommand _NotifyOnTransitionChange{"playerdbnotifyonjoblobby", "Notify On Job Lobby Change", "Notifies you when a tracked player joins or leaves a job lobby"};
+	static BoolCommand _NotifyOnSessionTypeChange{"playerdbnotifyonseschange", "Notificar cambio de tipo de sesión", "Te avisa cuando cambia el tipo de sesión de un jugador rastreado"};
+	static BoolCommand _NotifyOnMissionChange{"playerdbnotifyonmischange", "Notificar cambio de misión", "Te avisa cuando un jugador rastreado se une o sale de una misión"};
+	static BoolCommand _NotifyOnTransitionChange{"playerdbnotifyonjoblobby", "Notificar lobby de trabajo", "Te avisa cuando un jugador rastreado se une o sale de un lobby de trabajo"};
 
 	class UpdateSavedPlayersNow : public Command
 	{
@@ -32,7 +32,7 @@ namespace YimMenu::Features
 		}
 	};
 
-	UpdateSavedPlayersNow _UpdateSavedPlayersNow{"playerdbupdatenow", "Update Saved Players Now", "Force-updates all saved players"};
+	UpdateSavedPlayersNow _UpdateSavedPlayersNow{"playerdbupdatenow", "Actualizar jugadores guardados ahora", "Actualiza por la fuerza todos los jugadores guardados"};
 }
 
 namespace YimMenu
@@ -67,36 +67,36 @@ namespace YimMenu
 
 		if (saved_data.m_FetchedData->m_GameState != FetchedPlayerData::GameState::INVALID && fetched_data.m_GameState == FetchedPlayerData::GameState::INVALID && Features::_NotifyWhenOffline.GetState())
 		{
-			Notifications::Show("Player Tracker", std::format("{} is no longer online", saved_data.m_Name));
+			Notifications::Show("Seguidor de jugadores", std::format("{} ya no está conectado", saved_data.m_Name));
 		}
 		else if (!IsInJoinableSession(saved_data.m_FetchedData->m_GameState) && IsInJoinableSession(fetched_data.m_GameState) && Features::_NotifyWhenJoinable.GetState())
 		{
-			Notifications::Show("Player Tracker", std::format("{} is now in a joinable session", saved_data.m_Name));
+			Notifications::Show("Seguidor de jugadores", std::format("{} ahora está en una sesión a la que te puedes unir", saved_data.m_Name));
 		}
 		else if (saved_data.m_FetchedData->m_GameState == FetchedPlayerData::GameState::INVALID && saved_data.m_FetchedData->m_GameState != FetchedPlayerData::GameState::INVALID && Features::_NotifyWhenOnline.GetState())
 		{
-			Notifications::Show("Player Tracker", std::format("{} is now online", saved_data.m_Name));
+			Notifications::Show("Seguidor de jugadores", std::format("{} ahora está conectado", saved_data.m_Name));
 		}
 		else if (IsInJoinableSession(saved_data.m_FetchedData->m_GameState) && !IsInJoinableSession(fetched_data.m_GameState) && Features::_NotifyWhenUnjoinable.GetState())
 		{
-			Notifications::Show("Player Tracker", std::format("{} is no longer in a joinable session", saved_data.m_Name));
+			Notifications::Show("Seguidor de jugadores", std::format("{} ya no está en una sesión a la que te puedas unir", saved_data.m_Name));
 		}
 
 		if (IsValidSessionType(saved_data.m_FetchedData->m_GameState) && IsValidSessionType(fetched_data.m_GameState)
 		    && saved_data.m_FetchedData->m_GameState != fetched_data.m_GameState && Features::_NotifyOnSessionTypeChange.GetState())
 		{
-			Notifications::Show("Player Tracker", std::format("{} is now in a {} session", saved_data.m_Name, FetchedPlayerData::GameStateToString(fetched_data.m_GameState)));
+			Notifications::Show("Seguidor de jugadores", std::format("{} ahora está en una sesión de {}", saved_data.m_Name, FetchedPlayerData::GameStateToString(fetched_data.m_GameState)));
 		}
 
 		if (Features::_NotifyOnMissionChange.GetState())
 		{
 			if (saved_data.m_FetchedData->m_MissionType != FetchedPlayerData::MissionType::NONE && fetched_data.m_MissionType == FetchedPlayerData::MissionType::NONE)
 			{
-				Notifications::Show("Player Tracker", std::format("{} is no longer in a {}", saved_data.m_Name, FetchedPlayerData::MissionTypeToString(saved_data.m_FetchedData->m_MissionType)));
+				Notifications::Show("Seguidor de jugadores", std::format("{} ya no está en un {}", saved_data.m_Name, FetchedPlayerData::MissionTypeToString(saved_data.m_FetchedData->m_MissionType)));
 			}
 			else if (fetched_data.m_MissionType != FetchedPlayerData::MissionType::NONE && fetched_data.m_MissionType != saved_data.m_FetchedData->m_MissionType)
 			{
-				Notifications::Show("Player Tracker", std::format("{} is now in a {}", saved_data.m_Name, FetchedPlayerData::MissionTypeToString(fetched_data.m_MissionType)));
+				Notifications::Show("Seguidor de jugadores", std::format("{} ahora está en un {}", saved_data.m_Name, FetchedPlayerData::MissionTypeToString(fetched_data.m_MissionType)));
 			}
 		}
 
@@ -106,17 +106,17 @@ namespace YimMenu
 			{
 				if (fetched_data.m_HostOfTransition)
 				{
-					Notifications::Show("Player Tracker", std::format("{} has hosted a job lobby", saved_data.m_Name));
+					Notifications::Show("Seguidor de jugadores", std::format("{} ha organizado una sesión de actividades", saved_data.m_Name));
 				}
 				else
 				{
-					Notifications::Show("Player Tracker", std::format("{} has joined a job lobby", saved_data.m_Name));
+					Notifications::Show("Seguidor de jugadores", std::format("{} se ha unido a una sesión de actividades", saved_data.m_Name));
 				}
 			}
 			else if ((!saved_data.m_FetchedData->m_InTransition && fetched_data.m_InTransition)
 			    && (!Features::_NotifyOnMissionChange.GetState() || (fetched_data.m_MissionType == saved_data.m_FetchedData->m_MissionType)))
 			{
-				Notifications::Show("Player Tracker", std::format("{} is no longer in a job lobby", saved_data.m_Name));
+				Notifications::Show("Seguidor de jugadores", std::format("{} ya no está en una sesión de actividades", saved_data.m_Name));
 			}
 		}
 

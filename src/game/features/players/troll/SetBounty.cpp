@@ -7,7 +7,7 @@
 namespace YimMenu::Features
 {
 	static IntCommand _BountyAmount{"bountyamount", "Bounty Amount", "The bounty amount to set", 1, 10000, 9000};
-	static BoolCommand _AnonymousBounty{"anonymousbounty", "Anonymous Bounty", "Sets the bounty as anonymous"};
+	static BoolCommand _AnonymousBounty{"anonymousbounty", "Recompensa anónima", "Pone la recompensa como anónima"};
 
 	class SetBounty : public PlayerCommand
 	{
@@ -27,5 +27,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static SetBounty _SetBounty{"setbounty", "Set Bounty", "Sets the specified bounty to the player"};
+	static SetBounty _SetBounty{"setbounty", "Poner recompensa", "Pone la recompensa especificada al jugador"};
 }

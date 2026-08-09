@@ -68,13 +68,13 @@ namespace YimMenu::Features
 		{
 			if (!*Pointers.IsSessionStarted)
 			{
-				Notifications::Show("Open Gun Locker", "Please join GTA Online.", NotificationType::Error);
+				Notifications::Show("Open Gun Locker", "Únete a GTA Online.", NotificationType::Error);
 				return;
 			}
 
 			if (GlobalPlayerBD::Get()->Entries[Self::GetPlayer().GetId()].SimpleInteriorData.Index != eSimpleInteriorIndex::SIMPLE_INTERIOR_INVALID)
 			{
-				Notifications::Show("Open Gun Locker", "Cannot open gun locker while in an interior.", NotificationType::Error);
+				Notifications::Show("Open Gun Locker", "No puedes abrir el armero dentro de un interior.", NotificationType::Error);
 				return;
 			}
 
@@ -82,5 +82,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static _OpenGunLocker __OpenGunLocker{"opengunlocker", "Open Gun Locker", "Allows you to access gun locker remotely."};
+	static _OpenGunLocker __OpenGunLocker{"opengunlocker", "Abrir armero", "Te permite acceder al armario de armas de forma remota"};
 }

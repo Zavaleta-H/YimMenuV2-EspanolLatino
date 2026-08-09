@@ -293,15 +293,15 @@ namespace YimMenu::Features
 			}
 		};
 
-		static SetCuts _CayoPericoHeistSetCuts{"cayopericoheistsetcuts", "Set Cuts", "Sets heist cut"};
-		static ForceReady _CayoPericoHeistForceReady{"cayopericoheistforceready", "Force Ready", "Forces all players to be ready"};
-		static Setup _CayoPericoHeistSetup{"cayopericoheistsetup", "Setup", "Sets up cayo perico heist"};
-		static SetPrimaryTargetValue _CayoPericoHeistSetPrimaryTargetValue{"cayopericoheistsetprimarytargetvalue", "Set Primary Target Value", "Updates primary target value"};
-		static SetSecondaryTakeValue _CayoPericoHeistSetSecondaryTakeValue{"cayopericoheistsetsecondarytakevalue", "Set Secondary Take Value", "Updates secondary take value"};
-		static SkipHacking _CayoPericoHeistSkipHacking{"cayopericoheistskiphacking", "Skip Hacking", "Skips hacking process"};
-		static CutSewer _CayoPericoHeistCutSewer{"cayopericoheistcutsewer", "Cut Sewer", "Cuts the sewer"};
-		static CutGlass _CayoPericoHeistCutGlass{"cayopericoheistcutglass", "Cut Glass", "Cuts the glass"};
-		static TakePrimaryTarget _CayoPericoHeistTakePrimaryTarget{"cayopericoheisttakeprimarytarget", "Take Primary Target", "Takes primary target"};
-		static InstantFinish _CayoPericoHeistInstantFinish{"cayopericoheistinstantfinish", "Instant Finish", "Instantly passes the heist"};
+		static SetCuts _CayoPericoHeistSetCuts{"cayopericoheistsetcuts", "Establecer reparto", "Establece el reparto del golpe"};
+		static ForceReady _CayoPericoHeistForceReady{"cayopericoheistforceready", "Forzar listo", "Fuerza a todos los jugadores a estar listos"};
+		static Setup _CayoPericoHeistSetup{"cayopericoheistsetup", "Preparar", "Prepara el golpe a Cayo Perico"};
+		static SetPrimaryTargetValue _CayoPericoHeistSetPrimaryTargetValue{"cayopericoheistsetprimarytargetvalue", "Establecer valor del objetivo principal", "Actualiza el valor del objetivo principal"};
+		static SetSecondaryTakeValue _CayoPericoHeistSetSecondaryTakeValue{"cayopericoheistsetsecondarytakevalue", "Establecer valor del botín secundario", "Actualiza el valor del botín secundario"};
+		static SkipHacking _CayoPericoHeistSkipHacking{"cayopericoheistskiphacking", "Omitir hackeo", "Omitir el proceso de hackeo"};
+		static CutSewer _CayoPericoHeistCutSewer{"cayopericoheistcutsewer", "Cortar alcantarilla", "Corta la alcantarilla"};
+		static CutGlass _CayoPericoHeistCutGlass{"cayopericoheistcutglass", "Cortar vidrio", "Corta el vidrio"};
+		static TakePrimaryTarget _CayoPericoHeistTakePrimaryTarget{"cayopericoheisttakeprimarytarget", "Tomar objetivo principal", "Toma el objetivo principal"};
+		static InstantFinish _CayoPericoHeistInstantFinish{"cayopericoheistinstantfinish", "Terminar al instante", "Aprueba el golpe al instante"};
 	}
 }

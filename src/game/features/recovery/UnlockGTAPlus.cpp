@@ -28,5 +28,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static UnlockGTAPlus _UnlockGTAPlus{"unlockgtaplus", "Unlock GTA+", "Force-unlocks GTA+ content. Use with caution"};
+	static UnlockGTAPlus _UnlockGTAPlus{"unlockgtaplus", "Desbloquear GTA+", "Fuerza el desbloqueo del contenido de GTA+. Úsalo con cuidado"};
 }

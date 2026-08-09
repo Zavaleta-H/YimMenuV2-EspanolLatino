@@ -14,5 +14,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static SuperJump _SuperJump{"superjump", "Super Jump", "Jump higher than normal"};
+	static SuperJump _SuperJump{"superjump", "Super salto", "Salta más alto de lo normal"};
 }

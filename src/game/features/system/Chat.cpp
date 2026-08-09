@@ -94,6 +94,6 @@ namespace YimMenu::Features
 		}
 	};
 
-	static Chat _Chat{"chathelper", "Chat", "Use this to open the chat"};
-	static ClearChat _ClearChat{"clearchat", "Clear Chat", "Use this to clear the chat"};
+	static Chat _Chat{"chathelper", "Chat", "Úsalo para abrir el chat"};
+	static ClearChat _ClearChat{"clearchat", "Vaciar chat", "Úsalo para limpiar el chat"};
 }

@@ -9,18 +9,18 @@ namespace YimMenu::Submenus
 {
 	Recovery::Recovery() :
 		#define ICON_FA_SACK_DOLLAR "\xef\x93\x80"
-	    Submenu::Submenu("Recovery", ICON_FA_SACK_DOLLAR)
+	    Submenu::Submenu("Recuperación", ICON_FA_SACK_DOLLAR)
 	{
-		auto main = std::make_shared<Category>("Main");
-		auto businesses = std::make_shared<Category>("Businesses");
+		auto main = std::make_shared<Category>("Principal");
+		auto businesses = std::make_shared<Category>("Negocios");
 		auto casino = std::make_shared<Category>("Casino");
 
 		auto generalGroup = std::make_shared<Group>("General");
 		auto businessGroup = std::make_shared<Group>("General");
-		auto casinoSlots = std::make_shared<Group>("Slot Machines");
-		//auto casinoWheel = std::make_shared<Group>("Lucky Wheel");
+		auto casinoSlots = std::make_shared<Group>("Tragamonedas");
+		//auto casinoWheel = std::make_shared<Group>("Rueda de la suerte");
 		//auto casinoBlackJack = std::make_shared<Group>("Blackjack");
-		//auto casinoRoulette = std::make_shared<Group>("Roulette");
+		//auto casinoRoulette = std::make_shared<Group>("Ruleta");
 
 		generalGroup->AddItem(std::make_shared<BoolCommandItem>("playallmissionssolo"_J));
 		generalGroup->AddItem(std::make_shared<BoolCommandItem>("unlockgtaplus"_J));
